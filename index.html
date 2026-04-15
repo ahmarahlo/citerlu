@@ -3,20 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panduan Full UKK MeowGug (0-100)</title>
+    <title>Panduan Full UKK MeowGug (0-100) - Updated</title>
     <style>
         :root {
-            --primary: #60a5fa; /* Lighter blue for dark mode */
-            --bg: #0f172a; /* Slate 900 */
-            --text: #e2e8f0; /* Slate 200 */
-            --card-bg: #1e293b; /* Slate 800 */
+            --primary: #60a5fa;
+            --bg: #0f172a;
+            --text: #e2e8f0;
+            --card-bg: #1e293b;
             --code-bg: #000000;
             --accent: #10b981;
             --danger: #ef4444;
-            --danger-bg: #450a0a;
-            --danger-text1: #fca5a5;
-            --danger-text2: #f87171;
-            --danger-border: #7f1d1d;
             --tips-bg: #064e3b;
         }
         body {
@@ -61,11 +57,9 @@
         }
         .war-room {
             border-left: 5px solid var(--danger);
-            background-color: var(--danger-bg);
+            background-color: #450a0a;
         }
-        .war-room h2 { color: var(--danger-text1); }
-        .war-room h3 { color: var(--danger-text2); margin-top: 25px; border-bottom: 1px solid var(--danger-border); padding-bottom: 5px;}
-        .war-room li { margin-bottom: 10px; color: #f8fafc; }
+        .war-room h2 { color: #fca5a5; }
         .badge {
             background: #334155;
             padding: 4px 10px;
@@ -121,7 +115,6 @@
             font-weight: 500;
         }
         .toc a:hover { text-decoration: underline; color: #93c5fd; }
-        
         code {
             background: #334155;
             padding: 2px 5px;
@@ -134,42 +127,16 @@
             padding: 0;
         }
         @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-            .header {
-                padding: 25px 15px;
-                margin-bottom: 20px;
-            }
-            .header h1 {
-                font-size: 1.5rem;
-            }
-            .step-card {
-                padding: 15px;
-                margin-bottom: 20px;
-            }
-            .step-card h2 {
-                font-size: 1.2rem;
-            }
-            .war-room h2 {
-                font-size: 1.1rem;
-            }
-            .war-room {
-                padding: 15px;
-            }
-            pre {
-                padding: 40px 10px 15px 10px;
-                font-size: 12px;
-            }
-            .toc {
-                padding: 15px;
-            }
-            .toc a {
-                display: block;
-                margin: 5px 0;
-                padding-bottom: 8px;
-                border-bottom: 1px solid #334155;
-            }
+            .container { padding: 15px; }
+            .header { padding: 25px 15px; margin-bottom: 20px; }
+            .header h1 { font-size: 1.5rem; }
+            .step-card { padding: 15px; margin-bottom: 20px; }
+            .step-card h2 { font-size: 1.2rem; }
+            .war-room h2 { font-size: 1.1rem; }
+            .war-room { padding: 15px; }
+            pre { padding: 40px 10px 15px 10px; font-size: 12px; }
+            .toc { padding: 15px; }
+            .toc a { display: block; margin: 5px 0; padding-bottom: 8px; border-bottom: 1px solid #334155; }
         }
     </style>
 </head>
@@ -177,41 +144,14 @@
 
 <div class="container">
     <div class="header">
-        <h1>🚀 Buku Saku UKK 2026: Sistem Klinik MeowGug</h1>
-        <p>Step-by-Step 0-100 (Full Native PHP + MySQLi)</p>
-    </div>
-
-    <!-- STRATEGI UJIAN (WAR ROOM) -->
-    <div class="step-card war-room">
-        <h2>🚨 WAR ROOM: STRATEGI & URUTAN SAAT UJIAN (BACA INI DULU!)</h2>
-        <p>Penguji sering kali melihat <b>PROSES</b> kerjamu. Kalau kamu asal ketik tanpa urutan yang jelas, begitu ada error kamu akan stuck dan stress. <b>Gunakan urutan (SOP) ini saat ujian:</b></p>
-
-        <h3>TAHAP 1: URUTAN PENGERJAAN SAAT UJIAN (SANGAT PENTING)</h3>
-        <ol>
-            <li><b>(15 Menit) Setup Awal:</b> Buka XAMPP/MySQL. Buat <code>database.sql</code>, import, lalu ketik <code>koneksi.php</code>. Tes buka <code>koneksi.php</code> di browser, kalau <b>layar browser blank / background warna hitam</b> berarti KONEKSI SUKSES. Jangan lanjut sebelum koneksi aman.</li>
-            <li><b>(30 Menit) Security / Autentikasi:</b> Kerjakan <code>login.php</code>, <code>cek_login.php</code>, <code>logout.php</code>, dan sebuah <code>dashboard.php</code> kosong yang cuma ada tulisan "Selamat Datang". Pastikan proses Login dan Logout jalan sempurna. Jika ini jalan, asesor sudah lihat sistemmu punya pondasi kuat.</li>
-            <li><b>(20 Menit) TRIK DUPLIKASI (COPY-PASTE):</b> Kerjakan <code>form_hewan.php</code> sampai selesai dan rapi (HTML & Tabelnya). Setelah selesai, <b>JANGAN MENGETIK ULANG UNTUK FORM LAIN!</b> Cukup Copy file <code>form_hewan.php</code> tersebut, lalu Rename (Ubah Nama) menjadi <code>form_booking.php</code> dan <code>form_stok.php</code>. Kamu hanya tinggal mengubah text <code>input name</code> dan kolom tabelnya saja. <i>Ini menghemat hafalan HTML-mu hingga 70%!</i></li>
-            <li><b>(60 Menit) Jantung CRUD:</b> Kerjakan <code>aksi.php</code>. Ini file tunggal penentu. Fokus bikin logika <code>INSERT</code> yang gampang dulu (Tambah hewan & stok). Jika sudah masuk ke DB, baru mikirin logika susah (Kuota 15 antrean & Potong Stok Obat).</li>
-            <li><b>(45 Menit) Final Boss (Dashboard):</b> Kembali ke <code>dashboard.php</code>. Lakukan query JOIN tabelnya, dan masukkan perhitungan matematika (Diskon 15% + PPN 11%) di dalam <code>while</code>.</li>
-        </ol>
-
-        <h3>TAHAP 2: HAFALAN APA YANG BISA "DIKARANG"?</h3>
-        <ul>
-            <li><b>CSS: Jangan dihafal!</b> Buang waktu. Penguji tidak menilai web design, mereka menilai FUNGSI. Gunakan tag tabel bawaan browser, atau kasih <code>border="1"</code> di HTML. Untuk style, karang seadanya asal gak acak-acakan.</li>
-            <li><b>Penamaan Variabel:</b> Jangan capek-capek pusing hapalin variabel <code>$_POST['tgl_pesan']</code>. <b>SAMAKAN SAJA</b> tulisan di atribut HTML <code>name="tanggal"</code> dengan nama kolom di Database MySQL <code>(tanggal)</code> dan nama receiver di PHP <code>$_POST['tanggal']</code>. Sinkronkan semua 1 nama, hapalanmu selesai!</li>
-        </ul>
-
-        <h3>TAHAP 3: PERTOLONGAN PERTAMA KALO PANIK (ERROR)</h3>
-        <ul>
-            <li><b>Error: Undefined Index / Undefined Array Key</b> 👉 JANGAN PANIK! Ini 100% dipastikan karena <i>typo</i>. Huruf besar/kecil di form HTML (<code>name="Nama"</code>) beda dengan di penangkap PHP (<code>$_POST['nama']</code>). Samakan hurufnya.</li>
-            <li><b>Error: Call to undefined function mysqli_...</b> 👉 Kalo kejadian begini di awal, Apache/MySQL mu lupa di Start, atau kamu lupa menaruh <code>include 'koneksi.php';</code> di paling atas struktur file PHP.</li>
-            <li><b>Klik Submit, tapi Data Tidak Masuk ke Database (Tidak Muncul Error)</b> 👉 Buka tab baru, cek phpMyAdmin. Kalau tetep ga ada, artinya query INSERT mu typo tanda kutip satu (<code>'</code>). Pastikan formatnya: <code>VALUES ('$_POST[nama]', '$_POST[jenis]')</code>.</li>
-        </ul>
+        <h1>🚀 Buku Saku UKK 2026: Sistem Klinik MeowGug (Updated)</h1>
+        <p>Step-by-Step 0-100 (Full Native PHP + MySQLi) - Dengan Register</p>
     </div>
 
     <!-- TOC -->
     <div class="toc">
         <strong>Navigasi Panduan Ke Coretan Kode Inti:</strong><br>
+        <a href="#step0">0. register.php (Opsional)</a> | 
         <a href="#step1">1. database.sql</a> | 
         <a href="#step2">2. koneksi.php</a> | 
         <a href="#step3">3. style.css</a> | 
@@ -224,6 +164,66 @@
         <a href="#step10">10. form_booking.php</a> | 
         <a href="#step11">11. form_stok.php</a> | 
         <a href="#step12">12. aksi.php</a>
+    </div>
+
+    <!-- STEP 0 -->
+    <div id="step0" class="step-card">
+        <h2>Langkah 0: Register Akun (Opsional) <span class="badge">register.php</span></h2>
+        <div class="tips">💡 <b>OPSIONAL:</b> Jika ingin fitur register untuk pelanggan baru. Bukan wajib untuk UKK, tapi bisa tambah nilai plus.</div>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php session_start(); if(isset($_SESSION['id'])) header("Location: dashboard.php"); ?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Register - MeowGug&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container" style="max-width: 400px; margin-top: 50px;"&gt;
+        &lt;h2&gt;Register Akun Baru&lt;/h2&gt;
+        &lt;?php if(isset($_GET['msg'])) echo "&lt;p style='color:red;'&gt;Username sudah ada atau password tidak cocok!&lt;/p&gt;"; ?&gt;
+        
+        &lt;form action="aksi.php?proses=register" method="POST"&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label&gt;Username&lt;/label&gt;
+                &lt;input type="text" name="username" required&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label&gt;Password&lt;/label&gt;
+                &lt;input type="password" name="password" required&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label&gt;Konfirmasi Password&lt;/label&gt;
+                &lt;input type="password" name="confirm_password" required&gt;
+            &lt;/div&gt;
+            &lt;button type="submit" class="btn"&gt;Register&lt;/button&gt;
+        &lt;/form&gt;
+        &lt;p style="margin-top: 15px;"&gt;&lt;a href="login.php"&gt;Sudah punya akun? Login&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <p><b>Update aksi.php:</b> Tambah blok register di atas "PROSES HEWAN".</p>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">// PROSES REGISTER
+if($proses == 'register') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+    
+    if($password != $confirm_password) {
+        header("Location: register.php?msg=password_tidak_cocok");
+        exit;
+    }
+    
+    // Cek apakah username sudah ada
+    $cek = mysqli_query($koneksi, "SELECT * FROM users WHERE username='$username'");
+    if(mysqli_num_rows($cek) > 0) {
+        header("Location: register.php?msg=username_sudah_ada");
+        exit;
+    }
+    
+    // Insert user baru dengan role Pelanggan
+    mysqli_query($koneksi, "INSERT INTO users (username, password, role, is_member) VALUES ('$username', '$password', 'Pelanggan', 0)");
+    header("Location: login.php?msg=register_sukses");
+}</code></pre>
     </div>
 
     <!-- STEP 1 -->
@@ -276,15 +276,22 @@ CREATE TABLE booking (
     FOREIGN KEY (stok_id) REFERENCES stok(id)
 );
 
--- DUMMY DATA AGAR BISA LOGIN
+-- Data Dummy
 INSERT INTO users (username, password, role, is_member) VALUES 
 ('admin1', 'admin123', 'Admin', 0),
 ('dokter1', 'dokter123', 'Dokter', 0),
 ('pelanggan1', 'pelanggan123', 'Pelanggan', 1),
 ('pelanggan2', 'pelanggan123', 'Pelanggan', 0);
 
-INSERT INTO layanan (nama_layanan, harga) VALUES ('Grooming Basic', 50000), ('Vaksinasi', 100000), ('Pemeriksaan Umum', 75000);
-INSERT INTO stok (nama_obat, jumlah, harga) VALUES ('Vitamin Kucing', 50, 15000), ('Obat Cacing', 30, 20000), ('Anti Kutu', 25, 35000);</code></pre>
+INSERT INTO layanan (nama_layanan, harga) VALUES 
+('Grooming Basic', 50000),
+('Vaksinasi', 100000),
+('Pemeriksaan Umum', 75000);
+
+INSERT INTO stok (nama_obat, jumlah, harga) VALUES 
+('Vitamin Kucing', 50, 15000),
+('Obat Cacing', 30, 20000),
+('Anti Kutu', 25, 35000);</code></pre>
     </div>
 
     <!-- STEP 2 -->
@@ -340,6 +347,7 @@ th { background-color: #34495e; color: #fff; }
     &lt;div class="nav"&gt;
         &lt;a href="index.php"&gt;Home&lt;/a&gt;
         &lt;a href="login.php"&gt;Login / Masuk&lt;/a&gt;
+        &lt;a href="register.php"&gt;Register&lt;/a&gt;
     &lt;/div&gt;
     &lt;div class="container"&gt;
         &lt;h1&gt;Selamat Datang di Klinik MeowGug&lt;/h1&gt;
@@ -377,7 +385,10 @@ th { background-color: #34495e; color: #fff; }
 &lt;body&gt;
     &lt;div class="container" style="max-width: 400px; margin-top: 50px;"&gt;
         &lt;h2&gt;Login Sistem&lt;/h2&gt;
-        &lt;?php if(isset($_GET['msg'])) echo "&lt;p style='color:red;'&gt;Username atau Password salah!&lt;/p&gt;"; ?&gt;
+        &lt;?php if(isset($_GET['msg'])) {
+            if($_GET['msg'] == 'register_sukses') echo "&lt;p style='color:green;'&gt;Register berhasil! Silakan login.&lt;/p&gt;";
+            else echo "&lt;p style='color:red;'&gt;Username atau Password salah!&lt;/p&gt;";
+        } ?&gt;
         
         &lt;form action="cek_login.php" method="POST"&gt;
             &lt;div class="form-group"&gt;
@@ -390,6 +401,7 @@ th { background-color: #34495e; color: #fff; }
             &lt;/div&gt;
             &lt;button type="submit" class="btn"&gt;Login&lt;/button&gt;
         &lt;/form&gt;
+        &lt;p style="margin-top: 15px;"&gt;&lt;a href="index.php"&gt;Kembali ke Halaman Utama&lt;/a&gt; | &lt;a href="register.php"&gt;Belum punya akun? Register&lt;/a&gt;&lt;/p&gt;
     &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
@@ -540,7 +552,7 @@ $user_id = $_SESSION['id'];
     <!-- STEP 9 -->
     <div id="step9" class="step-card">
         <h2>Langkah 9: Form Hewan <span class="badge">form_hewan.php</span></h2>
-        <div class="tips">💡 <b>TRIK TAHAP 3:</b> Ketik form HTML ini dengan sempurna dari atas sampai bawah. Setelah selesai, <b>DUPLIKAT (Copy & Paste file)</b> ini untuk mengerjakan Langkah 10 dan 11! Jangan mulai ngetik HTML kosong lagi dari nol!</div>
+        <div class="tips">💡 <b>TRIK TAHAP 3:</b> Ketik form HTML ini dengan sempurna dari atas sampai bawah. Setelah selesai, <b>JANGAN MENGETIK ULANG UNTUK FORM LAIN!</b> Cukup Copy file <code>form_hewan.php</code> tersebut, lalu Rename (Ubah Nama) menjadi <code>form_booking.php</code> dan <code>form_stok.php</code>. Kamu hanya tinggal mengubah text <code>input name</code> dan kolom tabelnya saja. <i>Ini menghemat hafalan HTML-mu hingga 70%!</i></div>
         <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
 session_start(); include 'koneksi.php';
 if($_SESSION['role'] != 'Pelanggan') header("Location: dashboard.php");
@@ -736,4 +748,5 @@ function copyCode(btn) {
 </script>
 
 </body>
-</html>
+</html></content>
+<parameter name="filePath">c:\Kodingers\phpin\index.html
