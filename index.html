@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan Full UKK MeowGug (0-100)</title>
+    <style>
+        :root {
+            --primary: #60a5fa; /* Lighter blue for dark mode */
+            --bg: #0f172a; /* Slate 900 */
+            --text: #e2e8f0; /* Slate 200 */
+            --card-bg: #1e293b; /* Slate 800 */
+            --code-bg: #000000;
+            --accent: #10b981;
+            --danger: #ef4444;
+            --danger-bg: #450a0a;
+            --danger-text1: #fca5a5;
+            --danger-text2: #f87171;
+            --danger-border: #7f1d1d;
+            --tips-bg: #064e3b;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            margin-bottom: 40px;
+            border: 1px solid #334155;
+        }
+        h1 { color: var(--primary); margin: 0 0 10px 0; }
+        .step-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            border-left: 5px solid var(--primary);
+        }
+        .step-card h2 {
+            margin-top: 0;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .war-room {
+            border-left: 5px solid var(--danger);
+            background-color: var(--danger-bg);
+        }
+        .war-room h2 { color: var(--danger-text1); }
+        .war-room h3 { color: var(--danger-text2); margin-top: 25px; border-bottom: 1px solid var(--danger-border); padding-bottom: 5px;}
+        .war-room li { margin-bottom: 10px; color: #f8fafc; }
+        .badge {
+            background: #334155;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #cbd5e1;
+            border: 1px solid #475569;
+        }
+        pre {
+            background: var(--code-bg);
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            position: relative;
+            font-size: 14px;
+            border: 1px solid #334155;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .copy-btn:hover { background: rgba(255,255,255,0.2); }
+        .tips {
+            background: var(--tips-bg);
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+            color: #f8fafc;
+        }
+        .toc {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid #334155;
+        }
+        .toc a {
+            display: inline-block;
+            margin: 5px 10px 5px 0;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        .toc a:hover { text-decoration: underline; color: #93c5fd; }
+        
+        code {
+            background: #334155;
+            padding: 2px 5px;
+            border-radius: 4px;
+            color: #93c5fd;
+        }
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>🚀 Buku Saku UKK 2026: Sistem Klinik MeowGug</h1>
+        <p>Step-by-Step 0-100 (Full Native PHP + MySQLi)</p>
+    </div>
+
+    <!-- STRATEGI UJIAN (WAR ROOM) -->
+    <div class="step-card war-room">
+        <h2>🚨 WAR ROOM: STRATEGI & URUTAN SAAT UJIAN (BACA INI DULU!)</h2>
+        <p>Penguji sering kali melihat <b>PROSES</b> kerjamu. Kalau kamu asal ketik tanpa urutan yang jelas, begitu ada error kamu akan stuck dan stress. <b>Gunakan urutan (SOP) ini saat ujian:</b></p>
+
+        <h3>TAHAP 1: URUTAN PENGERJAAN SAAT UJIAN (SANGAT PENTING)</h3>
+        <ol>
+            <li><b>(15 Menit) Setup Awal:</b> Buka XAMPP/MySQL. Buat <code>database.sql</code>, import, lalu ketik <code>koneksi.php</code>. Tes buka <code>koneksi.php</code> di browser, kalau <b>layar browser blank / background warna hitam</b> berarti KONEKSI SUKSES. Jangan lanjut sebelum koneksi aman.</li>
+            <li><b>(30 Menit) Security / Autentikasi:</b> Kerjakan <code>login.php</code>, <code>cek_login.php</code>, <code>logout.php</code>, dan sebuah <code>dashboard.php</code> kosong yang cuma ada tulisan "Selamat Datang". Pastikan proses Login dan Logout jalan sempurna. Jika ini jalan, asesor sudah lihat sistemmu punya pondasi kuat.</li>
+            <li><b>(20 Menit) TRIK DUPLIKASI (COPY-PASTE):</b> Kerjakan <code>form_hewan.php</code> sampai selesai dan rapi (HTML & Tabelnya). Setelah selesai, <b>JANGAN MENGETIK ULANG UNTUK FORM LAIN!</b> Cukup Copy file <code>form_hewan.php</code> tersebut, lalu Rename (Ubah Nama) menjadi <code>form_booking.php</code> dan <code>form_stok.php</code>. Kamu hanya tinggal mengubah text <code>input name</code> dan kolom tabelnya saja. <i>Ini menghemat hafalan HTML-mu hingga 70%!</i></li>
+            <li><b>(60 Menit) Jantung CRUD:</b> Kerjakan <code>aksi.php</code>. Ini file tunggal penentu. Fokus bikin logika <code>INSERT</code> yang gampang dulu (Tambah hewan & stok). Jika sudah masuk ke DB, baru mikirin logika susah (Kuota 15 antrean & Potong Stok Obat).</li>
+            <li><b>(45 Menit) Final Boss (Dashboard):</b> Kembali ke <code>dashboard.php</code>. Lakukan query JOIN tabelnya, dan masukkan perhitungan matematika (Diskon 15% + PPN 11%) di dalam <code>while</code>.</li>
+        </ol>
+
+        <h3>TAHAP 2: HAFALAN APA YANG BISA "DIKARANG"?</h3>
+        <ul>
+            <li><b>CSS: Jangan dihafal!</b> Buang waktu. Penguji tidak menilai web design, mereka menilai FUNGSI. Gunakan tag tabel bawaan browser, atau kasih <code>border="1"</code> di HTML. Untuk style, karang seadanya asal gak acak-acakan.</li>
+            <li><b>Penamaan Variabel:</b> Jangan capek-capek pusing hapalin variabel <code>$_POST['tgl_pesan']</code>. <b>SAMAKAN SAJA</b> tulisan di atribut HTML <code>name="tanggal"</code> dengan nama kolom di Database MySQL <code>(tanggal)</code> dan nama receiver di PHP <code>$_POST['tanggal']</code>. Sinkronkan semua 1 nama, hapalanmu selesai!</li>
+        </ul>
+
+        <h3>TAHAP 3: PERTOLONGAN PERTAMA KALO PANIK (ERROR)</h3>
+        <ul>
+            <li><b>Error: Undefined Index / Undefined Array Key</b> 👉 JANGAN PANIK! Ini 100% dipastikan karena <i>typo</i>. Huruf besar/kecil di form HTML (<code>name="Nama"</code>) beda dengan di penangkap PHP (<code>$_POST['nama']</code>). Samakan hurufnya.</li>
+            <li><b>Error: Call to undefined function mysqli_...</b> 👉 Kalo kejadian begini di awal, Apache/MySQL mu lupa di Start, atau kamu lupa menaruh <code>include 'koneksi.php';</code> di paling atas struktur file PHP.</li>
+            <li><b>Klik Submit, tapi Data Tidak Masuk ke Database (Tidak Muncul Error)</b> 👉 Buka tab baru, cek phpMyAdmin. Kalau tetep ga ada, artinya query INSERT mu typo tanda kutip satu (<code>'</code>). Pastikan formatnya: <code>VALUES ('$_POST[nama]', '$_POST[jenis]')</code>.</li>
+        </ul>
+    </div>
+
+    <!-- TOC -->
+    <div class="toc">
+        <strong>Navigasi Panduan Ke Coretan Kode Inti:</strong><br>
+        <a href="#step1">1. database.sql</a> | 
+        <a href="#step2">2. koneksi.php</a> | 
+        <a href="#step3">3. style.css</a> | 
+        <a href="#step4">4. index.php</a> | 
+        <a href="#step5">5. login.php</a> | 
+        <a href="#step6">6. cek_login.php</a> | 
+        <a href="#step7">7. logout.php</a> | 
+        <a href="#step8">8. dashboard.php</a> | 
+        <a href="#step9">9. form_hewan.php</a> | 
+        <a href="#step10">10. form_booking.php</a> | 
+        <a href="#step11">11. form_stok.php</a> | 
+        <a href="#step12">12. aksi.php</a>
+    </div>
+
+    <!-- STEP 1 -->
+    <div id="step1" class="step-card">
+        <h2>Langkah 1: Siapkan Database <span class="badge">database.sql</span></h2>
+        <div class="tips">💡 <b>HAFALAN TAHAP 1:</b> Ingat saja entitasnya: users, hewan, layanan, stok, dan booking. Sisanya logika foreign key biasa.</div>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-sql">CREATE DATABASE db_meowgug;
+USE db_meowgug;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('Admin', 'Dokter', 'Pelanggan') NOT NULL,
+    is_member BOOLEAN DEFAULT 0
+);
+
+CREATE TABLE hewan (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama_hewan VARCHAR(100) NOT NULL,
+    jenis VARCHAR(100) NOT NULL,
+    pemilik_id INT NOT NULL,
+    FOREIGN KEY (pemilik_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE layanan (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama_layanan VARCHAR(100) NOT NULL,
+    harga INT NOT NULL
+);
+
+CREATE TABLE stok (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama_obat VARCHAR(100) NOT NULL,
+    jumlah INT NOT NULL,
+    harga INT NOT NULL
+);
+
+CREATE TABLE booking (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tanggal DATE NOT NULL,
+    no_antrean INT NOT NULL,
+    hewan_id INT NOT NULL,
+    layanan_id INT NOT NULL,
+    stok_id INT DEFAULT NULL,
+    qty_obat INT DEFAULT 0,
+    status ENUM('Menunggu', 'Selesai') DEFAULT 'Menunggu',
+    FOREIGN KEY (hewan_id) REFERENCES hewan(id),
+    FOREIGN KEY (layanan_id) REFERENCES layanan(id),
+    FOREIGN KEY (stok_id) REFERENCES stok(id)
+);
+
+-- DUMMY DATA AGAR BISA LOGIN
+INSERT INTO users (username, password, role, is_member) VALUES 
+('admin1', 'admin123', 'Admin', 0),
+('dokter1', 'dokter123', 'Dokter', 0),
+('pelanggan1', 'pelanggan123', 'Pelanggan', 1),
+('pelanggan2', 'pelanggan123', 'Pelanggan', 0);
+
+INSERT INTO layanan (nama_layanan, harga) VALUES ('Grooming Basic', 50000), ('Vaksinasi', 100000), ('Pemeriksaan Umum', 75000);
+INSERT INTO stok (nama_obat, jumlah, harga) VALUES ('Vitamin Kucing', 50, 15000), ('Obat Cacing', 30, 20000), ('Anti Kutu', 25, 35000);</code></pre>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="step2" class="step-card">
+        <h2>Langkah 2: Koneksi Database <span class="badge">koneksi.php</span></h2>
+        <div class="tips">💡 <b>HAFALAN TAHAP 1:</b> 4 variabel wajib + `mysqli_connect`. Hafal Mati yang ini.</div>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db   = "db_meowgug";
+
+$koneksi = mysqli_connect($host, $user, $pass, $db);
+
+if (!$koneksi) {
+    die("Koneksi gagal: " . mysqli_connect_error());
+}
+?&gt;</code></pre>
+    </div>
+
+    <!-- STEP 3 -->
+    <div id="step3" class="step-card">
+        <h2>Langkah 3: File CSS <span class="badge">style.css</span></h2>
+        <div class="tips">💡 <b>SKIP HAFALAN!</b>: Cukup karang `.container`, `.btn`, `.form-group`, `.nav` dan style tabel.</div>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-css">body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f6f9; color: #333; }
+.container { width: 85%; margin: 20px auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+table, th, td { border: 1px solid #ddd; }
+th, td { padding: 10px; text-align: left; }
+th { background-color: #34495e; color: #fff; }
+.btn { display: inline-block; padding: 8px 12px; background-color: #3498db; color: #fff; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; }
+.btn-danger { background-color: #e74c3c; }
+.btn-success { background-color: #2ecc71; }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+.form-group input, .form-group select { width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+.nav { background: #2c3e50; padding: 15px; overflow: hidden; }
+.nav a { color: #fff; text-decoration: none; margin-right: 15px; font-weight: bold; }</code></pre>
+    </div>
+
+    <!-- STEP 4 -->
+    <div id="step4" class="step-card">
+        <h2>Langkah 4: Landing Page <span class="badge">index.php</span></h2>
+        <div class="tips">💡 <b>HAFALAN:</b> Query basic nampilin layanan aja (Select * from layanan).</div>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php include 'koneksi.php'; ?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;MeowGug Clinic&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="nav"&gt;
+        &lt;a href="index.php"&gt;Home&lt;/a&gt;
+        &lt;a href="login.php"&gt;Login / Masuk&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="container"&gt;
+        &lt;h1&gt;Selamat Datang di Klinik MeowGug&lt;/h1&gt;
+        &lt;h2&gt;Daftar Harga&lt;/h2&gt;
+        &lt;table&gt;
+            &lt;tr&gt;&lt;th&gt;No&lt;/th&gt;&lt;th&gt;Nama Layanan&lt;/th&gt;&lt;th&gt;Harga&lt;/th&gt;&lt;/tr&gt;
+            &lt;?php
+            $no = 1;
+            $q = mysqli_query($koneksi, "SELECT * FROM layanan");
+            while ($row = mysqli_fetch_assoc($q)) {
+                echo "&lt;tr&gt;
+                        &lt;td&gt;".$no++."&lt;/td&gt;
+                        &lt;td&gt;".$row['nama_layanan']."&lt;/td&gt;
+                        &lt;td&gt;Rp ".number_format($row['harga'],0,',','.')."&lt;/td&gt;
+                      &lt;/tr&gt;";
+            }
+            ?&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <!-- STEP 5 -->
+    <div id="step5" class="step-card">
+        <h2>Langkah 5: Form Login HTML <span class="badge">login.php</span></h2>
+        <div class="tips">💡 <b>HAFALAN TAHAP 2:</b> Cuma form HTML biasa, arahkan ke `cek_login.php`.</div>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php session_start(); if(isset($_SESSION['id'])) header("Location: dashboard.php"); ?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Login - MeowGug&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container" style="max-width: 400px; margin-top: 50px;"&gt;
+        &lt;h2&gt;Login Sistem&lt;/h2&gt;
+        &lt;?php if(isset($_GET['msg'])) echo "&lt;p style='color:red;'&gt;Username atau Password salah!&lt;/p&gt;"; ?&gt;
+        
+        &lt;form action="cek_login.php" method="POST"&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label&gt;Username&lt;/label&gt;
+                &lt;input type="text" name="username" required&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label&gt;Password&lt;/label&gt;
+                &lt;input type="password" name="password" required&gt;
+            &lt;/div&gt;
+            &lt;button type="submit" class="btn"&gt;Login&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <!-- STEP 6 -->
+    <div id="step6" class="step-card">
+        <h2>Langkah 6: Cek Sesi Login <span class="badge">cek_login.php</span></h2>
+        <div class="tips">💡 <b>HAFALAN TAHAP 2:</b> Pola Mutlak: 1. Tangkap POST, 2. NumRows, 3. Set Session.</div>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start();
+include 'koneksi.php';
+
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+$query = mysqli_query($koneksi, "SELECT * FROM users WHERE username='$username' AND password='$password'");
+$cek = mysqli_num_rows($query);
+
+if($cek &gt; 0){
+    $data = mysqli_fetch_assoc($query);
+    $_SESSION['id'] = $data['id'];
+    $_SESSION['role'] = $data['role'];
+    $_SESSION['is_member'] = $data['is_member']; // Harus ada untuk fitur diskon
+    header("Location: dashboard.php");
+}else{
+    header("Location: login.php?msg=gagal");
+}
+?&gt;</code></pre>
+    </div>
+
+    <!-- STEP 7 -->
+    <div id="step7" class="step-card">
+        <h2>Langkah 7: Logout <span class="badge">logout.php</span></h2>
+        <div class="tips">💡 Wajib Tahu, cuma 3 baris.</div>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start();
+session_destroy();
+header("Location: index.php");
+?&gt;</code></pre>
+    </div>
+
+    <!-- STEP 8 -->
+    <div id="step8" class="step-card">
+        <h2>Langkah 8: Final Boss (Dashboard & Tagihan) <span class="badge">dashboard.php</span></h2>
+        <div class="tips">💡 <b>HAFALAN TAHAP 5 (Paling Susah):</b> Lihat baik-baik komentar <code style="background:transparent;color:#10b981;">// RUMUS PERHITUNGAN</code>! Perhitungan Matematika Diskon dan PPN <b>wajib</b> di dalam blok <code>while</code>. Saat ujian, pastikan rumus diskon itu hanya memotong harga Jasa pelayanannya saja, bukan harga Obat.</div>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start();
+include 'koneksi.php';
+if(!isset($_SESSION['id'])) header("Location: login.php");
+
+$role = $_SESSION['role'];
+$user_id = $_SESSION['id'];
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Dashboard&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="nav"&gt;
+        &lt;a href="dashboard.php"&gt;Dashboard&lt;/a&gt;
+        &lt;?php if($role == 'Pelanggan') { ?&gt;
+            &lt;a href="form_hewan.php"&gt;Data Hewan&lt;/a&gt;
+            &lt;a href="form_booking.php"&gt;Booking Layanan&lt;/a&gt;
+        &lt;?php } ?&gt;
+        &lt;?php if($role == 'Admin') { ?&gt;
+            &lt;a href="form_stok.php"&gt;Kelola Stok&lt;/a&gt;
+        &lt;?php } ?&gt;
+        &lt;a href="logout.php" style="float: right;"&gt;Logout&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class="container"&gt;
+        &lt;h1&gt;Dashboard - Role: &lt;?= $role ?&gt;&lt;/h1&gt;
+        &lt;h2&gt;Tabel Antrean&lt;/h2&gt;
+        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Antrean&lt;/th&gt;&lt;th&gt;Tgl&lt;/th&gt;&lt;th&gt;Hewan&lt;/th&gt;&lt;th&gt;Layanan&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;th&gt;Total Tagihan (Inc. PPN)&lt;/th&gt;&lt;th&gt;Aksi&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;?php
+            // Query JOIN Utama
+            $sql = "SELECT b.*, h.nama_hewan, u.is_member, l.nama_layanan, l.harga as h_layanan, s.harga as h_obat 
+                    FROM booking b 
+                    JOIN hewan h ON b.hewan_id = h.id 
+                    JOIN users u ON h.pemilik_id = u.id
+                    JOIN layanan l ON b.layanan_id = l.id 
+                    LEFT JOIN stok s ON b.stok_id = s.id 
+                    ";
+            // Jika Pelanggan, filter by id
+            if($role == 'Pelanggan') $sql .= " WHERE h.pemilik_id = '$user_id'";
+            $sql .= " ORDER BY b.tanggal DESC, b.no_antrean ASC";
+
+            $query = mysqli_query($koneksi, $sql);
+            while($row = mysqli_fetch_assoc($query)){
+                
+                // ===================================
+                // 🛑 RUMUS PERHITUNGAN (WAJIB INGAT)
+                // ===================================
+                $biaya_layanan = $row['h_layanan'];
+                $biaya_obat = ($row['h_obat'] != null) ? ($row['h_obat'] * $row['qty_obat']) : 0;
+                
+                $diskon = 0;
+                // Diskon 15% dari biaya layanan JIKA MEMBER
+                if($row['is_member'] == 1) {
+                    $diskon = 0.15 * $biaya_layanan; 
+                }
+                
+                $total_sementara = ($biaya_layanan - $diskon) + $biaya_obat;
+                $ppn = 0.11 * $total_sementara;
+                $total_tagihan = $total_sementara + $ppn;
+                // ===================================
+
+                echo "&lt;tr&gt;
+                        &lt;td&gt;".$row['no_antrean']."&lt;/td&gt;
+                        &lt;td&gt;".$row['tanggal']."&lt;/td&gt;
+                        &lt;td&gt;".$row['nama_hewan']."&lt;/td&gt;
+                        &lt;td&gt;".$row['nama_layanan']."&lt;/td&gt;
+                        &lt;td&gt;&lt;b&gt;".$row['status']."&lt;/b&gt;&lt;/td&gt;
+                        &lt;td&gt;Rp ".number_format($total_tagihan, 0, ',', '.')."&lt;/td&gt;
+                        &lt;td&gt;";
+                        
+                // Aksi Khusus Dokter (Tombol Selesaikan & Form Pilih Obat)
+                if($role == 'Dokter' && $row['status'] == 'Menunggu') {
+                    echo "&lt;form action='aksi.php?proses=update_status' method='POST' style='display:inline;'&gt;
+                            &lt;input type='hidden' name='booking_id' value='".$row['id']."'&gt;
+                            &lt;select name='stok_id' style='width:auto;'&gt;&lt;option value=''&gt;-- Tanpa Obat --&lt;/option&gt;";
+                            $q_obat = mysqli_query($koneksi, "SELECT * FROM stok WHERE jumlah > 0");
+                            while($o = mysqli_fetch_assoc($q_obat)) {
+                                echo "&lt;option value='".$o['id']."'&gt;".$o['nama_obat']."&lt;/option&gt;";
+                            }
+                    echo "  &lt;/select&gt;
+                            &lt;input type='number' name='qty' placeholder='Qty' style='width:60px;' min='1'&gt;
+                            &lt;button type='submit' class='btn btn-success'&gt;Selesai&lt;/button&gt;
+                          &lt;/form&gt;";
+                } else {
+                    echo "-";
+                }
+                echo "  &lt;/td&gt;&lt;/tr&gt;";
+            }
+            ?&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <!-- STEP 9 -->
+    <div id="step9" class="step-card">
+        <h2>Langkah 9: Form Hewan <span class="badge">form_hewan.php</span></h2>
+        <div class="tips">💡 <b>TRIK TAHAP 3:</b> Ketik form HTML ini dengan sempurna dari atas sampai bawah. Setelah selesai, <b>DUPLIKAT (Copy & Paste file)</b> ini untuk mengerjakan Langkah 10 dan 11! Jangan mulai ngetik HTML kosong lagi dari nol!</div>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start(); include 'koneksi.php';
+if($_SESSION['role'] != 'Pelanggan') header("Location: dashboard.php");
+?&gt;
+&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;Data Hewan&lt;/title&gt;&lt;link rel="stylesheet" href="style.css"&gt;&lt;/head&gt;&lt;body&gt;
+    &lt;div class="nav"&gt;&lt;a href="dashboard.php"&gt;Kembali Dashboard&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;Tambah Hewan&lt;/h2&gt;
+        &lt;form action="aksi.php?proses=tambah_hewan" method="POST"&gt;
+            &lt;div class="form-group"&gt;&lt;label&gt;Nama&lt;/label&gt;&lt;input type="text" name="nama_hewan" required&gt;&lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label&gt;Jenis&lt;/label&gt;
+                &lt;select name="jenis"&gt;&lt;option value="Kucing"&gt;Kucing&lt;/option&gt;&lt;option value="Anjing"&gt;Anjing&lt;/option&gt;&lt;/select&gt;
+            &lt;/div&gt;
+            &lt;button type="submit" class="btn"&gt;Simpan&lt;/button&gt;
+        &lt;/form&gt;
+        
+        &lt;h2&gt;Daftar Hewan&lt;/h2&gt;
+        &lt;table&gt;
+            &lt;tr&gt;&lt;th&gt;Nama&lt;/th&gt;&lt;th&gt;Jenis&lt;/th&gt;&lt;th&gt;Aksi&lt;/th&gt;&lt;/tr&gt;
+            &lt;?php
+            $uid = $_SESSION['id'];
+            $q = mysqli_query($koneksi, "SELECT * FROM hewan WHERE pemilik_id='$uid'");
+            while($h = mysqli_fetch_assoc($q)){
+                echo "&lt;tr&gt;&lt;td&gt;".$h['nama_hewan']."&lt;/td&gt;&lt;td&gt;".$h['jenis']."&lt;/td&gt;
+                      &lt;td&gt;&lt;a href='aksi.php?proses=hapus_hewan&id=".$h['id']."' class='btn btn-danger'&gt;Hapus&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;";
+            }
+            ?&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/body&gt;&lt;/html&gt;</code></pre>
+    </div>
+
+    <!-- STEP 10 -->
+    <div id="step10" class="step-card">
+        <h2>Langkah 10: Form Booking <span class="badge">form_booking.php</span></h2>
+        <div class="tips">💡 <b>HAFALAN TAHAP 3:</b> Hasil Copy-Paste dari form_hewan! Cukup tambahkan perulangan Select Dropdown Layanan dan Hewan dari database.</div>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start(); include 'koneksi.php';
+if($_SESSION['role'] != 'Pelanggan') header("Location: dashboard.php");
+?&gt;
+&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;Booking&lt;/title&gt;&lt;link rel="stylesheet" href="style.css"&gt;&lt;/head&gt;&lt;body&gt;
+    &lt;div class="nav"&gt;&lt;a href="dashboard.php"&gt;Kembali Dashboard&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;Buat Antrean Baru&lt;/h2&gt;
+        &lt;form action="aksi.php?proses=tambah_booking" method="POST"&gt;
+            &lt;div class="form-group"&gt;&lt;label&gt;Tanggal&lt;/label&gt;&lt;input type="date" name="tanggal" required&gt;&lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label&gt;Hewan Peliharaan&lt;/label&gt;
+                &lt;select name="hewan_id" required&gt;
+                    &lt;?php
+                    $uid = $_SESSION['id'];
+                    $qh = mysqli_query($koneksi, "SELECT * FROM hewan WHERE pemilik_id='$uid'");
+                    while($h = mysqli_fetch_assoc($qh)) echo "&lt;option value='".$h['id']."'&gt;".$h['nama_hewan']."&lt;/option&gt;";
+                    ?&gt;
+                &lt;/select&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label&gt;Layanan&lt;/label&gt;
+                &lt;select name="layanan_id" required&gt;
+                    &lt;?php
+                    $ql = mysqli_query($koneksi, "SELECT * FROM layanan");
+                    while($l = mysqli_fetch_assoc($ql)) echo "&lt;option value='".$l['id']."'&gt;".$l['nama_layanan']."&lt;/option&gt;";
+                    ?&gt;
+                &lt;/select&gt;
+            &lt;/div&gt;
+            &lt;button type="submit" class="btn"&gt;Daftar Booking&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/body&gt;&lt;/html&gt;</code></pre>
+    </div>
+
+    <!-- STEP 11 -->
+    <div id="step11" class="step-card">
+        <h2>Langkah 11: Form Kelola Stok Obat <span class="badge">form_stok.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start(); include 'koneksi.php';
+if($_SESSION['role'] != 'Admin') header("Location: dashboard.php");
+?&gt;
+&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;Stok&lt;/title&gt;&lt;link rel="stylesheet" href="style.css"&gt;&lt;/head&gt;&lt;body&gt;
+    &lt;div class="nav"&gt;&lt;a href="dashboard.php"&gt;Kembali Dashboard&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;Input Stok Obat Baru&lt;/h2&gt;
+        &lt;form action="aksi.php?proses=tambah_stok" method="POST"&gt;
+            &lt;div class="form-group"&gt;&lt;label&gt;Nama Obat&lt;/label&gt;&lt;input type="text" name="nama_obat" required&gt;&lt;/div&gt;
+            &lt;div class="form-group"&gt;&lt;label&gt;Jumlah&lt;/label&gt;&lt;input type="number" name="jumlah" required&gt;&lt;/div&gt;
+            &lt;div class="form-group"&gt;&lt;label&gt;Harga&lt;/label&gt;&lt;input type="number" name="harga" required&gt;&lt;/div&gt;
+            &lt;button type="submit" class="btn"&gt;Simpan&lt;/button&gt;
+        &lt;/form&gt;
+        
+        &lt;h2&gt;Data Stok&lt;/h2&gt;
+        &lt;table&gt;
+            &lt;tr&gt;&lt;th&gt;Nama Obat&lt;/th&gt;&lt;th&gt;Sisa&lt;/th&gt;&lt;th&gt;Aksi&lt;/th&gt;&lt;/tr&gt;
+            &lt;?php
+            $q = mysqli_query($koneksi, "SELECT * FROM stok");
+            while($s = mysqli_fetch_assoc($q)){
+                echo "&lt;tr&gt;&lt;td&gt;".$s['nama_obat']."&lt;/td&gt;&lt;td&gt;".$s['jumlah']." Pcs&lt;/td&gt;
+                      &lt;td&gt;&lt;a href='aksi.php?proses=hapus_stok&id=".$s['id']."' class='btn btn-danger'&gt;Hapus&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;";
+            }
+            ?&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/body&gt;&lt;/html&gt;</code></pre>
+    </div>
+
+    <!-- STEP 12 -->
+    <div id="step12" class="step-card">
+        <h2>Langkah 12: Pusat Jantung Logika <span class="badge">aksi.php</span></h2>
+        <div class="tips">💡 <b>HAFALAN TAHAP 4 (FOKUS UTAMA):</b> Kerjakan file ini JIKA SEMUA BENTUK sudah siap. Fokusmu letak pada nomor 3 (Validasi Max 15 perhari) dan nomor 4 (Potong Stok Obat oleh Dokter). Ini yang akan jadi bahan uji coba dosen penilai.</div>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start(); include 'koneksi.php';
+$proses = isset($_GET['proses']) ? $_GET['proses'] : '';
+
+// ==========================================
+// 1. TAMBAH/HAPUS HEWAN
+// ==========================================
+if($proses == 'tambah_hewan') {
+    mysqli_query($koneksi, "INSERT INTO hewan (nama_hewan, jenis, pemilik_id) VALUES ('$_POST[nama_hewan]', '$_POST[jenis]', '$_SESSION[id]')");
+    header("Location: form_hewan.php");
+} elseif($proses == 'hapus_hewan') {
+    mysqli_query($koneksi, "DELETE FROM hewan WHERE id='$_GET[id]'");
+    header("Location: form_hewan.php");
+
+// ==========================================
+// 2. TAMBAH/HAPUS STOK
+// ==========================================
+} elseif($proses == 'tambah_stok') {
+    mysqli_query($koneksi, "INSERT INTO stok (nama_obat, jumlah, harga) VALUES ('$_POST[nama_obat]', '$_POST[jumlah]', '$_POST[harga]')");
+    header("Location: form_stok.php");
+} elseif($proses == 'hapus_stok') {
+    mysqli_query($koneksi, "DELETE FROM stok WHERE id='$_GET[id]'");
+    header("Location: form_stok.php");
+
+// ==========================================
+// 3. TAMBAH BOOKING (VALIDASI MAX 15)
+// ==========================================
+} elseif($proses == 'tambah_booking') {
+    $tgl = $_POST['tanggal'];
+    
+    // Hitung dulu tiket hari tersebut
+    $cek = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT COUNT(*) as total FROM booking WHERE tanggal='$tgl'"));
+    
+    if($cek['total'] &gt;= 15) {
+        // Stop code nya (die)
+        die("&lt;h3&gt;Kuota Hari ini Penuh! (Maks 15)&lt;/h3&gt;&lt;a href='form_booking.php'&gt;Kembali&lt;/a&gt;");
+    } else {
+        // Buat No urut antrean = jumlah existing + 1
+        $no_antrean = $cek['total'] + 1;
+        mysqli_query($koneksi, "INSERT INTO booking (tanggal, no_antrean, hewan_id, layanan_id) VALUES ('$tgl', '$no_antrean', '$_POST[hewan_id]', '$_POST[layanan_id]')");
+        header("Location: dashboard.php");
+    }
+
+// ==========================================
+// 4. PEMERIKSAAN DOKTER (UPDATE & POTONG STOK)
+// ==========================================
+} elseif($proses == 'update_status') {
+    $booking_id = $_POST['booking_id'];
+    $stok_id = !empty($_POST['stok_id']) ? $_POST['stok_id'] : 'NULL';
+    $qty = !empty($_POST['qty']) ? $_POST['qty'] : 0;
+    
+    // Cek jika dokter resepkan BANYAK obat dari tabel form
+    if($stok_id != 'NULL' && $qty &gt; 0) {
+        $sisa = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT jumlah FROM stok WHERE id='$stok_id'"))['jumlah'];
+        
+        if($sisa &lt; $qty) {
+            die("&lt;h3&gt;Stok Tidak Cukup! Sisa: $sisa&lt;/h3&gt;&lt;a href='dashboard.php'&gt;Kembali&lt;/a&gt;");
+        }
+        
+        // 4.a Update Stok: Kurangi
+        mysqli_query($koneksi, "UPDATE stok SET jumlah = jumlah - $qty WHERE id='$stok_id'");
+        // 4.b Update Booking Selesai
+        mysqli_query($koneksi, "UPDATE booking SET status='Selesai', stok_id='$stok_id', qty_obat='$qty' WHERE id='$booking_id'");
+    } else {
+        // Kalo gak pakai obat, UPDATE selesai saja
+        mysqli_query($koneksi, "UPDATE booking SET status='Selesai' WHERE id='$booking_id'");
+    }
+    
+    header("Location: dashboard.php");
+}
+?&gt;</code></pre>
+    </div>
+
+</div>
+
+<script>
+function copyCode(btn) {
+    const code = btn.nextElementSibling.innerText;
+    navigator.clipboard.writeText(code).then(() => {
+        btn.innerText = 'Copied!';
+        setTimeout(() => btn.innerText = 'Copy', 2000);
+    });
+}
+</script>
+
+</body>
+</html>
