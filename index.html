@@ -28,9 +28,11 @@
             padding: 0;
         }
         .container {
+            width: 100%;
             max-width: 1000px;
             margin: 0 auto;
             padding: 30px;
+            box-sizing: border-box;
         }
         .header {
             text-align: center;
@@ -130,6 +132,44 @@
             background: transparent;
             color: inherit;
             padding: 0;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            .header {
+                padding: 25px 15px;
+                margin-bottom: 20px;
+            }
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .step-card {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            .step-card h2 {
+                font-size: 1.2rem;
+            }
+            .war-room h2 {
+                font-size: 1.1rem;
+            }
+            .war-room {
+                padding: 15px;
+            }
+            pre {
+                padding: 40px 10px 15px 10px;
+                font-size: 12px;
+            }
+            .toc {
+                padding: 15px;
+            }
+            .toc a {
+                display: block;
+                margin: 5px 0;
+                padding-bottom: 8px;
+                border-bottom: 1px solid #334155;
+            }
         }
     </style>
 </head>
