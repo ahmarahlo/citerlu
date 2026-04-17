@@ -3,283 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buku Saku UKK 2026 - TechFix</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
-    
+    <title>Panduan Full UKK TechFix (0-100)</title>
     <style>
         :root {
-            --primary: #3b82f6;
-            --primary-hover: #2563eb;
-            --bg-body: #0f172a;
-            --bg-sidebar: #1e293b;
-            --bg-card: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: #334155;
-            --badge-bg: #3b82f620;
-            --badge-text: #60a5fa;
+            --primary: #3498db;
+            --bg: #0f172a;
+            --text: #e2e8f0;
+            --card-bg: #1e293b;
+            --code-bg: #000000;
+            --accent: #2ecc71;
+            --danger: #e74c3c;
+            --tips-bg: #064e3b;
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            margin: 0;
-            display: flex;
+            font-family: 'Segoe UI', system-ui, sans-serif;
             line-height: 1.6;
-        }
-
-        /* Sidebar Nav */
-        .sidebar {
-            width: 280px;
-            height: 100vh;
-            background-color: var(--bg-sidebar);
-            border-right: 1px solid var(--border-color);
-            position: fixed;
-            top: 0;
-            left: 0;
-            overflow-y: auto;
-            padding: 24px 0;
-            box-sizing: border-box;
-        }
-
-        .sidebar h3 {
-            padding: 0 24px;
-            margin-top: 0;
-            font-size: 1.1rem;
-            color: var(--primary);
-            letter-spacing: 0.5px;
-        }
-
-        .sidebar ul {
-            list-style: none;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
             padding: 0;
-            margin: 0;
         }
-
-        .sidebar li a {
-            display: block;
-            padding: 10px 24px;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .sidebar li a:hover {
-            background-color: #33415550;
-            color: var(--text-main);
-            border-left-color: var(--primary);
-        }
-
-        /* Main Content */
-        .main-content {
-            margin-left: 280px;
-            padding: 40px;
-            width: calc(100% - 280px);
-            box-sizing: border-box;
+        .container {
+            width: 100%;
             max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px;
+            box-sizing: border-box;
         }
-
         .header {
-            margin-bottom: 50px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .header h1 {
-            font-size: 2.2rem;
-            margin: 0 0 10px 0;
-            background: linear-gradient(to right, #60a5fa, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin: 0;
-        }
-
-        .step-card {
-            background: var(--bg-card);
+            text-align: center;
+            padding: 40px 0;
+            background: var(--card-bg);
             border-radius: 12px;
-            border: 1px solid var(--border-color);
-            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
             margin-bottom: 40px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #334155;
         }
-
+        h1 { color: var(--primary); margin: 0 0 10px 0; }
+        .step-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            border-left: 5px solid var(--primary);
+        }
         .step-card h2 {
             margin-top: 0;
+            color: var(--primary);
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 1.4rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+            gap: 10px;
         }
-
         .badge {
-            background: var(--badge-bg);
-            color: var(--badge-text);
-            padding: 4px 12px;
-            border-radius: 6px;
+            background: #334155;
+            padding: 4px 10px;
+            border-radius: 20px;
             font-size: 0.8rem;
-            font-family: monospace;
-            border: 1px solid rgba(96, 165, 250, 0.2);
+            font-weight: bold;
+            color: #cbd5e1;
+            border: 1px solid #475569;
         }
-
-        /* Code Block Styling */
-        .code-wrapper {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-        }
-
         pre {
-            margin: 0;
+            background: var(--code-bg);
+            color: #d4d4d4;
             padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            position: relative;
             font-size: 14px;
-            line-height: 1.5;
-            font-family: 'JetBrains Mono', Consolas, monospace;
+            border: 1px solid #334155;
         }
-
         .copy-btn {
             position: absolute;
-            top: 12px;
-            right: 12px;
-            background: #334155;
-            color: var(--text-main);
-            border: 1px solid #475569;
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            top: 10px;
+            right: 10px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
             cursor: pointer;
-            transition: all 0.2s;
-            z-index: 10;
+            transition: 0.2s;
         }
-
-        .copy-btn:hover {
-            background: #475569;
-            transform: translateY(-1px);
+        .copy-btn:hover { background: rgba(255,255,255,0.2); }
+        .toc {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid #334155;
         }
-
-        /* Mobile Responsive */
-        @media (max-width: 900px) {
-            body { flex-direction: column; }
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-                padding: 15px;
-            }
-            .sidebar ul {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 5px;
-            }
-            .sidebar li a {
-                padding: 5px 10px;
-                border-left: none;
-                border-radius: 4px;
-                background: #33415550;
-            }
-            .main-content {
-                margin-left: 0;
-                width: 100%;
-                padding: 20px;
-            }
-            .header h1 { font-size: 1.8rem; }
+        .toc a {
+            display: inline-block;
+            margin: 5px 10px 5px 0;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        .toc a:hover { text-decoration: underline; color: #93c5fd; }
+        code { font-family: Consolas, monospace; }
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .header { padding: 25px 15px; margin-bottom: 20px; }
+            .step-card { padding: 15px; margin-bottom: 20px; }
+            pre { padding: 40px 10px 15px 10px; font-size: 12px; }
+            .toc a { display: block; margin: 5px 0; padding-bottom: 8px; border-bottom: 1px solid #334155; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="sidebar">
-        <h3>Navigasi File</h3>
-        <ul>
-            <li><a href="#step1">1. reset_dummy.sql</a></li>
-            <li><a href="#step2">2. koneksi.php</a></li>
-            <li><a href="#step3">3. stylee.css</a></li>
-            <li><a href="#step4">4. index.php</a></li>
-            <li><a href="#step5">5. login.php</a></li>
-            <li><a href="#step6">6. register.php</a></li>
-            <li><a href="#step7">7. cek_login.php</a></li>
-            <li><a href="#step8">8. logout.php</a></li>
-            <li><a href="#step9">9. dashboard.php</a></li>
-            <li><a href="#step10">10. form_booking.php</a></li>
-            <li><a href="#step11">11. form_laptop.php</a></li>
-            <li><a href="#step12">12. form_servis.php</a></li>
-            <li><a href="#step13">13. form_sparepart.php</a></li>
-            <li><a href="#step14">14. edit_sparepart.php</a></li>
-            <li><a href="#step15">15. nota_pembayaran.php</a></li>
-            <li><a href="#step16">16. laporan_keuangan.php</a></li>
-            <li><a href="#step17">17. aksi.php</a></li>
-        </ul>
-    </nav>
-
-    <main class="main-content">
-        <div class="header">
-            <h1>🚀 Buku Saku UKK 2026: TechFix & Parts</h1>
-            <p>Panduan Ujian Praktik Database, Relasi Baru (Detail Servis & Nota), dan Logika Laba Tersimpan</p>
+<div class="container">
+    <div class="header">
+        <h1>🚀 Buku Saku UKK 2026: Sistem TechFix & Parts</h1>
+        <p>Panduan Ujian Praktik Database, Relasi Baru (Detail Servis & Nota), dan Logika Laba Tersimpan</p>
+        <div style="margin-top: 20px;">
+            <a href="https://github.com/ahmarahlo/citerlu/archive/refs/heads/main.zip" class="btn" style="background: var(--accent); padding: 12px 25px; font-weight: bold; font-size: 16px; border-radius: 50px;">⬇️ Download Source Code (.ZIP)</a>
         </div>
+    </div>
 
-        <section id="step1" class="step-card">
-            <h2>Langkah 1 <span class="badge">reset_dummy.sql</span></h2>
-            <div class="code-wrapper">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code class="language-sql">DROP DATABASE IF EXISTS db_techfix;
+    <!-- TOC -->
+    <div class="toc">
+        <strong>Navigasi:</strong><br>
+        <a href="#step1">1. reset_dummy.sql</a> |
+        <a href="#step2">2. koneksi.php</a> |
+        <a href="#step3">3. stylee.css</a> |
+        <a href="#step4">4. index.php</a> |
+        <a href="#step5">5. login.php</a> |
+        <a href="#step6">6. register.php</a> |
+        <a href="#step7">7. cek_login.php</a> |
+        <a href="#step8">8. logout.php</a> |
+        <a href="#step9">9. dashboard.php</a> |
+        <a href="#step10">10. form_booking.php</a> |
+        <a href="#step11">11. form_laptop.php</a> |
+        <a href="#step12">12. form_servis.php</a> |
+        <a href="#step13">13. form_sparepart.php</a> |
+        <a href="#step14">14. edit_sparepart.php</a> |
+        <a href="#step15">15. nota_pembayaran.php</a> |
+        <a href="#step16">16. laporan_keuangan.php</a> |
+        <a href="#step17">17. aksi.php</a> |
+        <a href="#step18">18. edit_laptop.php</a> |
+        <a href="#step19">19. edit_servis.php</a> |
+    </div>
+
+    <!-- STEP 1 -->
+    <div id="step1" class="step-card">
+        <h2>Langkah 1: reset_dummy.sql <span class="badge">reset_dummy.sql</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-sql">DROP DATABASE IF EXISTS db_techfix;
 CREATE DATABASE db_techfix;
 USE db_techfix;
 SOURCE db_techfix.sql;
 
 -- Insert Users
 INSERT INTO users (username, password, role) VALUES 
-('budi', 'budi', 'Pelanggan'),
-('siti', 'siti', 'Pelanggan'),
-('andi', 'andi', 'Pelanggan');
+(&#x27;budi&#x27;, &#x27;budi&#x27;, &#x27;Pelanggan&#x27;),
+(&#x27;siti&#x27;, &#x27;siti&#x27;, &#x27;Pelanggan&#x27;),
+(&#x27;andi&#x27;, &#x27;andi&#x27;, &#x27;Pelanggan&#x27;);
 
 -- Insert Laptop (Assuming User IDs are 3, 4, 5 since 1 and 2 are Admin, Teknisi)
 INSERT INTO laptop (nama_laptop, jenis, id_pemilik) VALUES 
-('Asus ROG Strix', 'Gaming', 3),
-('Lenovo ThinkPad X1', 'Ultrabook', 4),
-('MacBook Pro M2', 'Laptop', 5),
-('Acer Nitro 5', 'Gaming', 3);
+(&#x27;Asus ROG Strix&#x27;, &#x27;Gaming&#x27;, 3),
+(&#x27;Lenovo ThinkPad X1&#x27;, &#x27;Ultrabook&#x27;, 4),
+(&#x27;MacBook Pro M2&#x27;, &#x27;Laptop&#x27;, 5),
+(&#x27;Acer Nitro 5&#x27;, &#x27;Gaming&#x27;, 3);
 
 -- Insert Servis
 INSERT INTO servis (nama_servis, harga_servis) VALUES 
-('Instal Ulang Windows', 150000),
-('Pembersihan Kipas & Pasta', 250000),
-('Ganti Keyboard', 100000),
-('Ganti LCD Screen', 200000),
-('Cek Mati Total', 50000);
+(&#x27;Instal Ulang Windows&#x27;, 150000),
+(&#x27;Pembersihan Kipas &amp; Pasta&#x27;, 250000),
+(&#x27;Ganti Keyboard&#x27;, 100000),
+(&#x27;Ganti LCD Screen&#x27;, 200000),
+(&#x27;Cek Mati Total&#x27;, 50000);
 
 -- Insert Sparepart
 INSERT INTO sparepart (sku, nama_sparepart, jumlah, harga_beli, harga_jual) VALUES 
-('RAM8GB', 'RAM Corsair 8GB DDR4', 15, 300000, 450000),
-('SSD512', 'SSD Samsung 512GB', 10, 500000, 750000),
-('KB-ASUS', 'Keyboard Asus ROG', 5, 200000, 350000),
-('BATT-LEN', 'Baterai Lenovo X1', 3, 600000, 850000),
-('PSTA', 'Thermal Paste Grizzly', 20, 100000, 150000);
+(&#x27;RAM8GB&#x27;, &#x27;RAM Corsair 8GB DDR4&#x27;, 15, 300000, 450000),
+(&#x27;SSD512&#x27;, &#x27;SSD Samsung 512GB&#x27;, 10, 500000, 750000),
+(&#x27;KB-ASUS&#x27;, &#x27;Keyboard Asus ROG&#x27;, 5, 200000, 350000),
+(&#x27;BATT-LEN&#x27;, &#x27;Baterai Lenovo X1&#x27;, 3, 600000, 850000),
+(&#x27;PSTA&#x27;, &#x27;Thermal Paste Grizzly&#x27;, 20, 100000, 150000);
 
 -- Insert Booking
 INSERT INTO booking (tanggal, id_laptop, id_servis, status) VALUES 
-('2024-05-01', 1, 2, 'Selesai'),
-('2024-05-02', 2, 4, 'Selesai'),
-('2024-05-05', 3, 1, 'Menunggu Antrean'),
-('2024-05-06', 4, 3, 'Menunggu Sparepart');
+(&#x27;2024-05-01&#x27;, 1, 2, &#x27;Selesai&#x27;),
+(&#x27;2024-05-02&#x27;, 2, 4, &#x27;Selesai&#x27;),
+(&#x27;2024-05-05&#x27;, 3, 1, &#x27;Menunggu Antrean&#x27;),
+(&#x27;2024-05-06&#x27;, 4, 3, &#x27;Menunggu Sparepart&#x27;);
 
 -- Insert Detail Servis for booking 1, 2, 4
 INSERT INTO detail_servis (id_booking, id_sparepart, qty, harga_satuan) VALUES 
@@ -289,35 +199,34 @@ INSERT INTO detail_servis (id_booking, id_sparepart, qty, harga_satuan) VALUES
 
 -- Insert Nota Pembayaran for 1 and 2
 INSERT INTO nota_pembayaran (id_booking, total_biaya, tanggal_selesai, garansi_servis_habis, garansi_sparepart_habis) VALUES 
-(1, 400000, '2024-05-03', '2024-06-02', '2025-05-03'),
-(2, 950000, '2024-05-04', '2024-06-03', '2025-05-04');</code></pre>
-            </div>
-        </section>
+(1, 400000, &#x27;2024-05-03&#x27;, &#x27;2024-06-02&#x27;, &#x27;2025-05-03&#x27;),
+(2, 950000, &#x27;2024-05-04&#x27;, &#x27;2024-06-03&#x27;, &#x27;2025-05-04&#x27;);
+</code></pre>
+    </div>
 
-        <section id="step2" class="step-card">
-            <h2>Langkah 2 <span class="badge">koneksi.php</span></h2>
-            <div class="code-wrapper">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code class="language-php">&lt;?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "db_techfix";
+    <!-- STEP 2 -->
+    <div id="step2" class="step-card">
+        <h2>Langkah 2: koneksi.php <span class="badge">koneksi.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+$host = &quot;localhost&quot;;
+$user = &quot;root&quot;;
+$pass = &quot;&quot;;
+$db   = &quot;db_techfix&quot;;
+
 
 $koneksi = mysqli_connect($host, $user, $pass, $db);
 
 if (!$koneksi) {
-    die("Koneksi gagal: " . mysqli_connect_error());
+    die(&quot;Koneksi gagal: &quot; . mysqli_connect_error());
 }
-?&gt;</code></pre>
-            </div>
-        </section>
+?&gt;
+</code></pre>
+    </div>
 
-        <section id="step3" class="step-card">
-            <h2>Langkah 3 <span class="badge">stylee.css</span></h2>
-            <div class="code-wrapper">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code class="language-css">body {
+    <!-- STEP 3 -->
+    <div id="step3" class="step-card">
+        <h2>Langkah 3: stylee.css <span class="badge">stylee.css</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-css">body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -337,9 +246,20 @@ table {
   border-collapse: collapse;
   margin-top: 15px;
 }
-table, th, td { border: 1px solid #ddd; }
-th, td { padding: 10px; text-align: left; }
-th { background-color: #34495e; color: #fff; }
+table,
+th,
+td {
+  border: 1px solid #ddd;
+}
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+th {
+  background-color: #34495e;
+  color: #fff;
+}
 .btn {
   display: inline-block;
   padding: 8px 12px;
@@ -350,264 +270,1147 @@ th { background-color: #34495e; color: #fff; }
   border: none;
   cursor: pointer;
 }
-.btn-danger { background-color: #e74c3c; }
-.btn-success { background-color: #2ecc71; }
-.form-group { margin-bottom: 15px; }
-.form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
-.form-group input, .form-group select {
+.btn-danger {
+  background-color: #e74c3c;
+}
+.btn-success {
+  background-color: #2ecc71;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.form-group input,
+.form-group select {
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-.nav { background: #2c3e50; padding: 15px; overflow: hidden; }
-.nav a { color: #fff; text-decoration: none; margin-right: 15px; font-weight: bold; }
-.navigation { display: flex; justify-content: space-between; align-items: center; background-color: #2c3e50; padding: 10px 20px; }
-.navleft p { color: #ffffff; font-size: 24px; font-weight: bold; margin: 0; }
-.navright a { color: #ffffff; text-decoration: none; margin-left: 15px; font-size: 14px; }
-.navright a:hover { text-decoration: underline; }
-.navright a[href="logout.php"] { color: #ff6666; }</code></pre>
-            </div>
-        </section>
+.nav {
+  background: #2c3e50;
+  padding: 15px;
+  overflow: hidden;
+}
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: bold;
+}
 
-        <section id="step4" class="step-card">
-            <h2>Langkah 4 <span class="badge">index.php</span></h2>
-            <div class="code-wrapper">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code class="language-php">&lt;?php
+.navigation {
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 10px 20px;
+}
+
+.navleft p {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.navright a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.navright a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    width: 80%;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+}
+
+h1 {
+    font-size: 22px;
+    color: #000;
+}
+
+p {
+    line-height: 1.5;
+}
+
+ */
+.navright a[href=&quot;logout.php&quot;] {
+    color: #ff6666;
+}
+
+table {
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+th {
+    background-color: #555;
+    color: white;
+    font-weight: normal;
+}
+</code></pre>
+    </div>
+
+    <!-- STEP 4 -->
+    <div id="step4" class="step-card">
+        <h2>Langkah 4: index.php <span class="badge">index.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
 session_start();
-include 'koneksi.php';
+include &#x27;koneksi.php&#x27;;
 ?&gt;
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;TechFix &amp; Parts&lt;/title&gt;
-    &lt;link rel="stylesheet" href="stylee.css"&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;stylee.css&quot;&gt;
     &lt;style&gt;
-        .hero { background-color: #2c3e50; color: white; padding: 40px 20px; text-align: center; border-radius: 8px; margin-bottom: 20px; }
-        .hero h1 { color: white; margin-top: 0; font-size: 28px; }
-        .hero p { font-size: 18px; color: #ecf0f1; }
+        .hero {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            color: white;
+            margin-top: 0;
+            font-size: 28px;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #ecf0f1;
+        }
     &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    &lt;div class="navigation"&gt;
-        &lt;div class="navleft"&gt;&lt;p&gt;TechFix&lt;/p&gt;&lt;/div&gt;
-        &lt;div class="navright"&gt;
-            &lt;a href="index.php"&gt;Home&lt;/a&gt;
-            &lt;?php if(isset($_SESSION['id'])) { 
-                if($_SESSION['role'] == 'Pelanggan') { ?&gt;
-                    &lt;a href="form_laptop.php"&gt;Data Laptop&lt;/a&gt;
-                    &lt;a href="form_booking.php"&gt;Booking Servis&lt;/a&gt;
+    &lt;div class=&quot;navigation&quot;&gt;
+        &lt;div class=&quot;navleft&quot;&gt;
+            &lt;p&gt;TechFix&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;navright&quot;&gt;
+            &lt;a href=&quot;index.php&quot;&gt;Home&lt;/a&gt;
+            &lt;?php if(isset($_SESSION[&#x27;id&#x27;])) { 
+                if($_SESSION[&#x27;role&#x27;] == &#x27;Pelanggan&#x27;) { ?&gt;
+                    &lt;a href=&quot;form_laptop.php&quot;&gt;Data Laptop&lt;/a&gt;
+                    &lt;a href=&quot;form_booking.php&quot;&gt;Booking Servis&lt;/a&gt;
                 &lt;?php } else { ?&gt;
-                    &lt;a href="dashboard.php"&gt;Dashboard&lt;/a&gt;
+                    &lt;a href=&quot;dashboard.php&quot;&gt;Dashboard&lt;/a&gt;
                 &lt;?php } ?&gt;
-                &lt;a href="logout.php"&gt;Logout&lt;/a&gt;
+                &lt;a href=&quot;logout.php&quot;&gt;Logout&lt;/a&gt;
             &lt;?php } else { ?&gt;
-                &lt;a href="login.php"&gt;Login / Masuk&lt;/a&gt;
-                &lt;a href="register.php"&gt;Register&lt;/a&gt;
+                &lt;a href=&quot;login.php&quot;&gt;Login / Masuk&lt;/a&gt;
+                &lt;a href=&quot;register.php&quot;&gt;Register&lt;/a&gt;
             &lt;?php } ?&gt;
         &lt;/div&gt;
     &lt;/div&gt;
     
-    &lt;div class="container"&gt;
-        &lt;div class="hero"&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;hero&quot;&gt;
             &lt;h1&gt;Selamat Datang di TechFix &amp; Parts&lt;/h1&gt;
             &lt;p&gt;Solusi Terbaik, Cepat, dan Terpercaya untuk Perawatan &amp; Perbaikan Laptop Anda.&lt;/p&gt;
         &lt;/div&gt;
         
-        &lt;?php if(isset($_SESSION['id']) && $_SESSION['role'] == 'Pelanggan') { ?&gt;
-        &lt;h2 style="margin-top:20px;"&gt;Lacak Servis Anda&lt;/h2&gt;
-        &lt;table border="1" cellpadding="10" style="width:100%; border-collapse: collapse; margin-bottom: 40px;"&gt;
-            &lt;tr style="background-color: #f2f2f2;"&gt;
-                &lt;th&gt;Tgl&lt;/th&gt;&lt;th&gt;Laptop&lt;/th&gt;&lt;th&gt;Servis &amp; Part&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;th&gt;Total Tagihan&lt;/th&gt;&lt;th&gt;Nota&lt;/th&gt;
+        &lt;?php if(isset($_SESSION[&#x27;id&#x27;]) &amp;&amp; $_SESSION[&#x27;role&#x27;] == &#x27;Pelanggan&#x27;) { ?&gt;
+        &lt;h2 style=&quot;margin-top:20px;&quot;&gt;Lacak Servis Anda&lt;/h2&gt;
+        &lt;table border=&quot;1&quot; cellpadding=&quot;10&quot; style=&quot;width:100%; border-collapse: collapse; margin-bottom: 40px;&quot;&gt;
+            &lt;tr style=&quot;background-color: #f2f2f2;&quot;&gt;
+                &lt;th&gt;Tgl&lt;/th&gt;
+                &lt;th&gt;Laptop&lt;/th&gt;
+                &lt;th&gt;Servis &amp; Part&lt;/th&gt;
+                &lt;th&gt;Status&lt;/th&gt;
+                &lt;th&gt;Total Tagihan&lt;/th&gt;
+                &lt;th&gt;Nota&lt;/th&gt;
             &lt;/tr&gt;
             &lt;?php
-            $user_id = $_SESSION['id'];
-            $sql = "SELECT b.*, l.nama_laptop, s.nama_servis, s.harga_servis FROM booking b JOIN laptop l ON b.id_laptop = l.id JOIN servis s ON b.id_servis = s.id WHERE l.id_pemilik = '$user_id' ORDER BY b.tanggal DESC, b.id ASC";
+            $user_id = $_SESSION[&#x27;id&#x27;];
+            $sql = &quot;SELECT b.*, l.nama_laptop, s.nama_servis, s.harga_servis
+                    FROM booking b
+                    JOIN laptop l ON b.id_laptop = l.id
+                    JOIN servis s ON b.id_servis = s.id
+                    WHERE l.id_pemilik = &#x27;$user_id&#x27; ORDER BY b.tanggal DESC, b.id ASC&quot;;
             $query = mysqli_query($koneksi, $sql);
             if(mysqli_num_rows($query) &gt; 0) {
                 while($row = mysqli_fetch_assoc($query)){
-                    $id_booking = $row['id'];
-                    $jasa = (int)$row['harga_servis'];
-                    $q_detail = mysqli_query($koneksi, "SELECT ds.*, sp.sku FROM detail_servis ds JOIN spareparts sp ON ds.id_sparepart = sp.id WHERE ds.id_booking = '$id_booking'");
-                    $sparepart_list = []; $total_part = 0;
+                    $id_booking = $row[&#x27;id&#x27;];
+                    $jasa = (int)$row[&#x27;harga_servis&#x27;];
+                    
+                    $q_detail = mysqli_query($koneksi, &quot;SELECT ds.*, sp.sku FROM detail_servis ds JOIN spareparts sp ON ds.id_sparepart = sp.id WHERE ds.id_booking = &#x27;$id_booking&#x27;&quot;);
+                    $sparepart_list = [];
+                    $total_part = 0;
                     while($ds = mysqli_fetch_assoc($q_detail)) {
-                        $sparepart_list[] = $ds['qty'] . "x " . $ds['sku'];
-                        $total_part += ($ds['qty'] * $ds['harga_satuan']);
+                        $sparepart_list[] = $ds[&#x27;qty&#x27;] . &quot;x &quot; . $ds[&#x27;sku&#x27;];
+                        $total_part += ($ds[&#x27;qty&#x27;] * $ds[&#x27;harga_satuan&#x27;]);
                     }
-                    $str_sparepart = (count($sparepart_list) &gt; 0) ? implode("&lt;br&gt;", $sparepart_list) : "&lt;i&gt;(Tanpa Sparepart)&lt;/i&gt;";
+                    $str_sparepart = (count($sparepart_list) &gt; 0) ? implode(&quot;&lt;br&gt;&quot;, $sparepart_list) : &quot;&lt;i&gt;(Tanpa Sparepart)&lt;/i&gt;&quot;;
+
                     $total_tagihan = $jasa + $total_part;
 
-                    echo "&lt;tr&gt;
-                            &lt;td&gt;".$row['tanggal']."&lt;/td&gt;&lt;td&gt;".$row['nama_laptop']."&lt;/td&gt;
-                            &lt;td&gt;".$row['nama_servis']."&lt;br&gt;&lt;small&gt;".$str_sparepart."&lt;/small&gt;&lt;/td&gt;
-                            &lt;td&gt;&lt;b&gt;".$row['status']."&lt;/b&gt;&lt;/td&gt;
-                            &lt;td&gt;&lt;b&gt;Rp ".number_format($total_tagihan, 0, ',', '.')."&lt;/b&gt;&lt;/td&gt;&lt;td&gt;";
-                    if ($row['status'] == 'Selesai') {
-                        echo "&lt;a href='nota_pembayaran.php?id_booking=".$row['id']."' target='_blank' class='btn btn-success' style='font-size:12px; padding: 4px 8px;'&gt;Cetak&lt;/a&gt;";
-                    } else { echo "-"; }
-                    echo "&lt;/td&gt;&lt;/tr&gt;";
+                    echo &quot;&lt;tr&gt;
+                            &lt;td&gt;&quot;.$row[&#x27;tanggal&#x27;].&quot;&lt;/td&gt;
+                            &lt;td&gt;&quot;.$row[&#x27;nama_laptop&#x27;].&quot;&lt;/td&gt;
+                            &lt;td&gt;&quot;.$row[&#x27;nama_servis&#x27;].&quot;&lt;br&gt;&lt;small&gt;&quot;.$str_sparepart.&quot;&lt;/small&gt;&lt;/td&gt;
+                            &lt;td&gt;&lt;b&gt;&quot;.$row[&#x27;status&#x27;].&quot;&lt;/b&gt;&lt;/td&gt;
+                            &lt;td&gt;&lt;b&gt;Rp &quot;.number_format($total_tagihan, 0, &#x27;,&#x27;, &#x27;.&#x27;).&quot;&lt;/b&gt;&lt;/td&gt;
+                            &lt;td&gt;&quot;;
+                    if ($row[&#x27;status&#x27;] == &#x27;Selesai&#x27;) {
+                        echo &quot;&lt;a href=&#x27;nota_pembayaran.php?id_booking=&quot;.$row[&#x27;id&#x27;].&quot;&#x27; target=&#x27;_blank&#x27; class=&#x27;btn btn-success&#x27; style=&#x27;font-size:12px; padding: 4px 8px;&#x27;&gt;Cetak&lt;/a&gt;&quot;;
+                    } else {
+                        echo &quot;-&quot;;
+                    }
+                    echo &quot;&lt;/td&gt;&lt;/tr&gt;&quot;;
                 }
-            } else { echo "&lt;tr&gt;&lt;td colspan='6' style='text-align:center;'&gt;Belum ada riwayat servis.&lt;/td&gt;&lt;/tr&gt;"; }
+            } else {
+                echo &quot;&lt;tr&gt;&lt;td colspan=&#x27;6&#x27; style=&#x27;text-align:center;&#x27;&gt;Belum ada riwayat servis.&lt;/td&gt;&lt;/tr&gt;&quot;;
+            }
             ?&gt;
         &lt;/table&gt;
         &lt;?php } ?&gt;
+        
+        &lt;h2&gt;Daftar Harga Layanan Servis&lt;/h2&gt;
+        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;th&gt;No&lt;/th&gt;
+                &lt;th&gt;Nama Servis&lt;/th&gt;
+                &lt;th&gt;Harga Jasa&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;?php
+            $no = 1;
+            $q = mysqli_query($koneksi, &quot;SELECT * FROM servis&quot;);
+            if(mysqli_num_rows($q) &gt; 0) {
+                while ($row = mysqli_fetch_assoc($q)) {
+                    echo &quot;&lt;tr&gt;
+                            &lt;td&gt;&quot;.$no++.&quot;&lt;/td&gt;
+                            &lt;td&gt;&quot;.$row[&#x27;nama_servis&#x27;].&quot;&lt;/td&gt;
+                            &lt;td&gt;Rp &quot;.number_format($row[&#x27;harga_servis&#x27;],0,&#x27;,&#x27;,&#x27;.&#x27;).&quot;&lt;/td&gt;
+                          &lt;/tr&gt;&quot;;
+                }
+            } else {
+                echo &quot;&lt;tr&gt;&lt;td colspan=&#x27;3&#x27; style=&#x27;text-align:center;&#x27;&gt;Belum ada data servis tersedia&lt;/td&gt;&lt;/tr&gt;&quot;;
+            }
+            ?&gt;
+        &lt;/table&gt;
+
+        &lt;h2 style=&quot;margin-top:40px;&quot;&gt;Beli Sparepart Tambahan&lt;/h2&gt;
+        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;th&gt;No&lt;/th&gt;
+                &lt;th&gt;Nama Sparepart&lt;/th&gt;
+                &lt;th&gt;Harga&lt;/th&gt;
+                &lt;th&gt;Stok Tersedia&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;?php
+            $no = 1;
+            $q_sparepart = mysqli_query($koneksi, &quot;SELECT * FROM spareparts WHERE jumlah &gt; 0&quot;);
+            if(mysqli_num_rows($q_sparepart) &gt; 0) {
+                while ($sp = mysqli_fetch_assoc($q_sparepart)) {
+                    echo &quot;&lt;tr&gt;
+                            &lt;td&gt;&quot;.$no++.&quot;&lt;/td&gt;
+                            &lt;td&gt;&quot;.$sp[&#x27;nama_sparepart&#x27;].&quot; (&quot;.$sp[&#x27;sku&#x27;].&quot;)&lt;/td&gt;
+                            &lt;td&gt;Rp &quot;.number_format($sp[&#x27;harga_jual&#x27;],0,&#x27;,&#x27;,&#x27;.&#x27;).&quot;&lt;/td&gt;
+                            &lt;td&gt;&quot;.$sp[&#x27;jumlah&#x27;].&quot; Unit&lt;/td&gt;
+                          &lt;/tr&gt;&quot;;
+                }
+            } else {
+                echo &quot;&lt;tr&gt;&lt;td colspan=&#x27;4&#x27; style=&#x27;text-align:center;&#x27;&gt;Stok sparepart sedang kosong&lt;/td&gt;&lt;/tr&gt;&quot;;
+            }
+            ?&gt;
+        &lt;/table&gt;
     &lt;/div&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-            </div>
-        </section>
+&lt;/html&gt;
+</code></pre>
+    </div>
 
-        <section id="step5" class="step-card">
-            <h2>Langkah 5 <span class="badge">login.php</span></h2>
-            <div class="code-wrapper">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code class="language-php">&lt;?php session_start(); if(isset($_SESSION['id'])) header("Location: dashboard.php"); ?&gt;
+    <!-- STEP 5 -->
+    <div id="step5" class="step-card">
+        <h2>Langkah 5: login.php <span class="badge">login.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php session_start(); if(isset($_SESSION[&#x27;id&#x27;])) header(&quot;Location: dashboard.php&quot;); ?&gt;
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;Login&lt;/title&gt;
-    &lt;link rel="stylesheet" href="stylee.css"&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;stylee.css&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    &lt;div class="container" style="max-width: 400px; margin-top: 50px;"&gt;
+    &lt;div class=&quot;container&quot; style=&quot;max-width: 400px; margin-top: 50px;&quot;&gt;
         &lt;h2&gt;Login Sistem&lt;/h2&gt;
-        &lt;?php if(isset($_GET['msg'])) {
-            if($_GET['msg'] == 'register_sukses') echo "&lt;p style='color:green;'&gt;Register berhasil! Silakan login.&lt;/p&gt;";
-            else echo "&lt;p style='color:red;'&gt;Username atau Password salah!&lt;/p&gt;";
+        &lt;?php if(isset($_GET[&#x27;msg&#x27;])) {
+            if($_GET[&#x27;msg&#x27;] == &#x27;register_sukses&#x27;) echo &quot;&lt;p style=&#x27;color:green;&#x27;&gt;Register berhasil! Silakan login.&lt;/p&gt;&quot;;
+            else echo &quot;&lt;p style=&#x27;color:red;&#x27;&gt;Username atau Password salah!&lt;/p&gt;&quot;;
         } ?&gt;
-        
-        &lt;form action="cek_login.php" method="POST"&gt;
-            &lt;div class="form-group"&gt;
+       
+        &lt;form action=&quot;cek_login.php&quot; method=&quot;POST&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
                 &lt;label&gt;Username&lt;/label&gt;
-                &lt;input type="text" name="username" required&gt;
+                &lt;input type=&quot;text&quot; name=&quot;username&quot; required&gt;
             &lt;/div&gt;
-            &lt;div class="form-group"&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
                 &lt;label&gt;Password&lt;/label&gt;
-                &lt;input type="password" name="password" required&gt;
+                &lt;input type=&quot;password&quot; name=&quot;password&quot; required&gt;
             &lt;/div&gt;
-            &lt;button type="submit" class="btn"&gt;Login&lt;/button&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn&quot;&gt;Login&lt;/button&gt;
         &lt;/form&gt;
-        &lt;p style="margin-top: 15px;"&gt;&lt;a href="index.php"&gt;Kembali ke Halaman Utama&lt;/a&gt; | &lt;a href="register.php"&gt;Belum punya akun? Register&lt;/a&gt;&lt;/p&gt;
+        &lt;p style=&quot;margin-top: 15px;&quot;&gt;&lt;a href=&quot;index.php&quot;&gt;Kembali ke Halaman Utama&lt;/a&gt; | &lt;a href=&quot;register.php&quot;&gt;Belum punya akun? Register&lt;/a&gt;&lt;/p&gt;
     &lt;/div&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-            </div>
-        </section>
+&lt;/html&gt;
+</code></pre>
+    </div>
 
-        <section id="step6" class="step-card">
-            <h2>Langkah 6 <span class="badge">register.php</span></h2>
-            <div class="code-wrapper">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code class="language-php">&lt;?php session_start(); if(isset($_SESSION['id'])) header("Location: dashboard.php"); ?&gt;
+    <!-- STEP 6 -->
+    <div id="step6" class="step-card">
+        <h2>Langkah 6: register.php <span class="badge">register.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php session_start(); if(isset($_SESSION[&#x27;id&#x27;])) header(&quot;Location: dashboard.php&quot;); ?&gt;
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;title&gt;Register&lt;/title&gt;
-    &lt;link rel="stylesheet" href="stylee.css"&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;stylee.css&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    &lt;div class="container" style="max-width: 400px; margin-top: 50px;"&gt;
+    &lt;div class=&quot;container&quot; style=&quot;max-width: 400px; margin-top: 50px;&quot;&gt;
         &lt;h2&gt;Register Akun Baru&lt;/h2&gt;
-        &lt;?php if(isset($_GET['msg'])) echo "&lt;p style='color:red;'&gt;Username sudah ada atau password tidak cocok!&lt;/p&gt;"; ?&gt;
-        
-        &lt;form action="aksi.php?proses=register" method="POST"&gt;
-            &lt;div class="form-group"&gt;
+        &lt;?php if(isset($_GET[&#x27;msg&#x27;])) echo &quot;&lt;p style=&#x27;color:red;&#x27;&gt;Username sudah ada atau password tidak cocok!&lt;/p&gt;&quot;; ?&gt;
+       
+        &lt;form action=&quot;aksi.php?proses=register&quot; method=&quot;POST&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
                 &lt;label&gt;Username&lt;/label&gt;
-                &lt;input type="text" name="username" required&gt;
+                &lt;input type=&quot;text&quot; name=&quot;username&quot; required&gt;
             &lt;/div&gt;
-            &lt;div class="form-group"&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
                 &lt;label&gt;Password&lt;/label&gt;
-                &lt;input type="password" name="password" required&gt;
+                &lt;input type=&quot;password&quot; name=&quot;password&quot; required&gt;
             &lt;/div&gt;
-            &lt;div class="form-group"&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
                 &lt;label&gt;Konfirmasi Password&lt;/label&gt;
-                &lt;input type="password" name="confirm_password" required&gt;
+                &lt;input type=&quot;password&quot; name=&quot;confirm_password&quot; required&gt;
             &lt;/div&gt;
-            &lt;button type="submit" class="btn"&gt;Register&lt;/button&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn&quot;&gt;Register&lt;/button&gt;
         &lt;/form&gt;
-        &lt;p style="margin-top: 15px;"&gt;&lt;a href="login.php"&gt;Sudah punya akun? Login&lt;/a&gt;&lt;/p&gt;
+        &lt;p style=&quot;margin-top: 15px;&quot;&gt;&lt;a href=&quot;login.php&quot;&gt;Sudah punya akun? Login&lt;/a&gt;&lt;/p&gt;
     &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-            </div>
-        </section>
+    </div>
 
-        <section id="step7" class="step-card">
-            <h2>Langkah 7 <span class="badge">cek_login.php</span></h2>
-            <div class="code-wrapper">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code class="language-php">&lt;?php
+    <!-- STEP 7 -->
+    <div id="step7" class="step-card">
+        <h2>Langkah 7: cek_login.php <span class="badge">cek_login.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
 session_start();
-include 'koneksi.php';
+include &#x27;koneksi.php&#x27;;
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+$username = $_POST[&#x27;username&#x27;];
+$password = $_POST[&#x27;password&#x27;];
 
-$query = mysqli_query($koneksi, "SELECT * FROM users WHERE username='$username' AND password='$password'");
+$query = mysqli_query($koneksi, &quot;SELECT * FROM users WHERE username=&#x27;$username&#x27; AND password=&#x27;$password&#x27;&quot;);
 $cek = mysqli_num_rows($query);
 
 if($cek &gt; 0){
     $data = mysqli_fetch_assoc($query);
-    $_SESSION['id'] = $data['id'];
-    $_SESSION['role'] = $data['role'];
+    $_SESSION[&#x27;id&#x27;] = $data[&#x27;id&#x27;];
+    $_SESSION[&#x27;role&#x27;] = $data[&#x27;role&#x27;];
     
-    if($data['role'] == 'Pelanggan') {
-        header("Location: index.php");
+    if($data[&#x27;role&#x27;] == &#x27;Pelanggan&#x27;) {
+        header(&quot;Location: index.php&quot;);
     } else {
-        header("Location: dashboard.php");
+        header(&quot;Location: dashboard.php&quot;);
     }
 } else {
-    header("Location: login.php?msg=gagal");
+    header(&quot;Location: login.php?msg=gagal&quot;);
 }
-?&gt;</code></pre>
-            </div>
-        </section>
+?&gt;
+</code></pre>
+    </div>
 
-        <section id="step8" class="step-card">
-            <h2>Langkah 8 <span class="badge">logout.php</span></h2>
-            <div class="code-wrapper">
-                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                <pre><code class="language-php">&lt;?php
+    <!-- STEP 8 -->
+    <div id="step8" class="step-card">
+        <h2>Langkah 8: logout.php <span class="badge">logout.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
 session_start();
 session_destroy();
-header("Location:index.php");
-?&gt;</code></pre>
-            </div>
-        </section>
+header(&quot;Location:index.php&quot;);
+?&gt;
+</code></pre>
+    </div>
 
-        </main>
+    <!-- STEP 9 -->
+    <div id="step9" class="step-card">
+        <h2>Langkah 9: dashboard.php <span class="badge">dashboard.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start();
+include &#x27;koneksi.php&#x27;;
+if(!isset($_SESSION[&#x27;id&#x27;])) header(&quot;Location: login.php&quot;);
+if($_SESSION[&#x27;role&#x27;] == &#x27;Pelanggan&#x27;) header(&quot;Location: index.php&quot;);
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script>
-        // Init Syntax Highlighter
-        hljs.highlightAll();
+$role = $_SESSION[&#x27;role&#x27;];
+$user_id = $_SESSION[&#x27;id&#x27;];
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;TechFix Dashboard&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;stylee.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;nav&quot;&gt;
+        &lt;a href=&quot;dashboard.php&quot;&gt;Dashboard&lt;/a&gt;
 
-        // Copy Code Functionality
-        function copyCode(btn) {
-            const pre = btn.parentElement;
-            const codeBlock = pre.querySelector('code');
+        &lt;?php if($role == &#x27;Admin&#x27; || $role == &#x27;Teknisi&#x27;) { ?&gt;
+            &lt;a href=&quot;form_sparepart.php&quot;&gt;Stok Barang/Part&lt;/a&gt;
+        &lt;?php } ?&gt;
+        &lt;?php if($role == &#x27;Admin&#x27;) { ?&gt;
+            &lt;a href=&quot;form_servis.php&quot;&gt;Kelola Servis&lt;/a&gt;
+            &lt;a href=&quot;laporan_keuangan.php&quot;&gt;Laporan Keuangan&lt;/a&gt;
+        &lt;?php } ?&gt;
+        
+        &lt;a href=&quot;logout.php&quot; style=&quot;float: right;&quot;&gt;Logout&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;h1&gt;Dashboard - Role: &lt;?= htmlspecialchars($role) ?&gt;&lt;/h1&gt;
+        &lt;h2&gt;Tabel Antrean Servis&lt;/h2&gt;
+        &lt;table border=&quot;1&quot; cellpadding=&quot;10&quot; style=&quot;width:100%; border-collapse: collapse;&quot;&gt;
+            &lt;thead&gt;
+                &lt;tr style=&quot;background-color: #f2f2f2;&quot;&gt;
+                    &lt;th&gt;ID&lt;/th&gt;
+                    &lt;th&gt;Tgl&lt;/th&gt;
+                    &lt;th&gt;Laptop&lt;/th&gt;
+                    &lt;th&gt;Servis (Jasa)&lt;/th&gt;
+                    &lt;th&gt;Sparepart Terpakai&lt;/th&gt;
+                    &lt;th&gt;Status&lt;/th&gt;
+                    &lt;th&gt;Total Biaya&lt;/th&gt;
+                    &lt;th&gt;Aksi&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+            &lt;?php
             
-            // Gunakan textContent supaya HTML tag dari highlight.js tidak ikut ter-copy
-            const textToCopy = codeBlock.textContent;
+            $sql = &quot;SELECT b.*, l.nama_laptop, s.nama_servis, s.harga_servis
+                    FROM booking b
+                    JOIN laptop l ON b.id_laptop = l.id
+                    JOIN servis s ON b.id_servis = s.id&quot;;
+            
+            $sql .= &quot; ORDER BY b.tanggal DESC, b.id ASC&quot;;
 
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                const originalText = btn.innerText;
-                btn.innerText = "Copied!";
-                btn.style.background = "#10b981";
-                btn.style.color = "white";
-                btn.style.borderColor = "#10b981";
+            $query = mysqli_query($koneksi, $sql);
+            
+            while($row = mysqli_fetch_assoc($query)){
+                $id_booking = $row[&#x27;id&#x27;];
+                $jasa = (int)$row[&#x27;harga_servis&#x27;];
                 
-                setTimeout(() => {
-                    btn.innerText = "Copy";
-                    btn.style.background = "#334155";
-                    btn.style.borderColor = "#475569";
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-            });
+                $q_detail = mysqli_query($koneksi, &quot;SELECT ds.*, sp.sku FROM detail_servis ds JOIN spareparts sp ON ds.id_sparepart = sp.id WHERE ds.id_booking = &#x27;$id_booking&#x27;&quot;);
+                $sparepart_list = [];
+                $total_part = 0;
+                while($ds = mysqli_fetch_assoc($q_detail)) {
+                    $sparepart_list[] = $ds[&#x27;qty&#x27;] . &quot;x &quot; . $ds[&#x27;sku&#x27;] . &quot; (Rp&quot;.number_format($ds[&#x27;harga_satuan&#x27;],0,&#x27;,&#x27;,&#x27;.&#x27;).&quot;)&quot;;
+                    $total_part += ($ds[&#x27;qty&#x27;] * $ds[&#x27;harga_satuan&#x27;]);
+                }
+                $str_sparepart = (count($sparepart_list) &gt; 0) ? implode(&quot;&lt;br&gt;&quot;, $sparepart_list) : &quot;&lt;i&gt;(Tanpa Sparepart)&lt;/i&gt;&quot;;
+
+                $total_tagihan = $jasa + $total_part;
+
+                echo &quot;&lt;tr&gt;
+                        &lt;td&gt;&quot;.$row[&#x27;id&#x27;].&quot;&lt;/td&gt;
+                        &lt;td&gt;&quot;.$row[&#x27;tanggal&#x27;].&quot;&lt;/td&gt;
+                        &lt;td&gt;&quot;.$row[&#x27;nama_laptop&#x27;].&quot;&lt;/td&gt;
+                        &lt;td&gt;&quot;.$row[&#x27;nama_servis&#x27;].&quot; &lt;br&gt;&lt;small&gt;Rp&quot;.number_format($jasa,0,&#x27;,&#x27;,&#x27;.&#x27;).&quot;&lt;/small&gt;&lt;/td&gt;
+                        &lt;td&gt;&quot;.$str_sparepart.&quot;&lt;/td&gt;
+                        &lt;td&gt;&lt;b&gt;&quot;.$row[&#x27;status&#x27;].&quot;&lt;/b&gt;&lt;/td&gt;
+                        &lt;td&gt;&lt;b&gt;Rp &quot;.number_format($total_tagihan, 0, &#x27;,&#x27;, &#x27;.&#x27;).&quot;&lt;/b&gt;&lt;/td&gt;
+                        &lt;td&gt;&quot;;
+
+                if(($role == &#x27;Teknisi&#x27; || $role == &#x27;Admin&#x27;) &amp;&amp; $row[&#x27;status&#x27;] != &#x27;Selesai&#x27;) {
+                    echo &quot;&lt;form action=&#x27;aksi.php?proses=update_status&#x27; method=&#x27;POST&#x27; style=&#x27;margin-bottom: 5px;&#x27;&gt;
+                            &lt;input type=&#x27;hidden&#x27; name=&#x27;id_booking&#x27; value=&#x27;&quot;.$row[&#x27;id&#x27;].&quot;&#x27;&gt;
+                            &lt;select name=&#x27;status&#x27; style=&#x27;width:auto;&#x27;&gt;
+                                &lt;option value=&#x27;Menunggu Antrean&#x27; &quot;.($row[&#x27;status&#x27;]==&#x27;Menunggu Antrean&#x27;?&#x27;selected&#x27;:&#x27;&#x27;).&quot;&gt;Menunggu Antrean&lt;/option&gt;
+                                &lt;option value=&#x27;Dicek&#x27; &quot;.($row[&#x27;status&#x27;]==&#x27;Dicek&#x27;?&#x27;selected&#x27;:&#x27;&#x27;).&quot;&gt;Dicek&lt;/option&gt;
+                                &lt;option value=&#x27;Menunggu Sparepart&#x27; &quot;.($row[&#x27;status&#x27;]==&#x27;Menunggu Sparepart&#x27;?&#x27;selected&#x27;:&#x27;&#x27;).&quot;&gt;Menunggu Sparepart&lt;/option&gt;
+                                &lt;option value=&#x27;Dikerjakan&#x27; &quot;.($row[&#x27;status&#x27;]==&#x27;Dikerjakan&#x27;?&#x27;selected&#x27;:&#x27;&#x27;).&quot;&gt;Dikerjakan&lt;/option&gt;
+                                &lt;option value=&#x27;Selesai&#x27;&gt;Selesai&lt;/option&gt;
+                            &lt;/select&gt;
+                            &lt;button type=&#x27;submit&#x27; class=&#x27;btn&#x27; style=&#x27;padding:4px 8px; font-size:12px;&#x27;&gt;Update&lt;/button&gt;
+                          &lt;/form&gt;&quot;;
+                          
+                    echo &quot;&lt;form action=&#x27;aksi.php?proses=tambah_sparepart_ke_servis&#x27; method=&#x27;POST&#x27; style=&#x27;background:#f9f9f9; padding:5px; border:1px solid #ccc; border-radius:4px;&#x27;&gt;
+                            &lt;input type=&#x27;hidden&#x27; name=&#x27;id_booking&#x27; value=&#x27;&quot;.$row[&#x27;id&#x27;].&quot;&#x27;&gt;
+                            &lt;select name=&#x27;id_sparepart&#x27; required style=&#x27;width:auto; margin-bottom:5px;&#x27;&gt;
+                                &lt;option value=&#x27;&#x27;&gt;-- Pilih Sparepart --&lt;/option&gt;&quot;;
+                            $q_sp = mysqli_query($koneksi, &quot;SELECT * FROM spareparts WHERE jumlah &gt; 0&quot;);
+                            while($sp = mysqli_fetch_assoc($q_sp)) {
+                                echo &quot;&lt;option value=&#x27;&quot;.$sp[&#x27;id&#x27;].&quot;&#x27;&gt;&quot;.$sp[&#x27;sku&#x27;].&quot; (Stok: &quot;.$sp[&#x27;jumlah&#x27;].&quot;)&lt;/option&gt;&quot;;
+                            }
+                    echo &quot;  &lt;/select&gt;&lt;br&gt;
+                            &lt;input type=&#x27;number&#x27; name=&#x27;qty&#x27; value=&#x27;1&#x27; min=&#x27;1&#x27; style=&#x27;width:50px;&#x27; required&gt;
+                            &lt;button type=&#x27;submit&#x27; class=&#x27;btn btn-success&#x27; style=&#x27;padding:4px 8px; font-size:12px;&#x27;&gt;+ Part&lt;/button&gt;
+                          &lt;/form&gt;&quot;;
+                } 
+                
+                if ($row[&#x27;status&#x27;] == &#x27;Selesai&#x27;) {
+                    echo &quot;&lt;a href=&#x27;nota_pembayaran.php?id_booking=&quot;.$row[&#x27;id&#x27;].&quot;&#x27; target=&#x27;_blank&#x27; class=&#x27;btn btn-success&#x27; style=&#x27;font-size:12px;&#x27;&gt;Cetak Nota&lt;/a&gt;&quot;;
+                }
+                
+                echo &quot;  &lt;/td&gt;&lt;/tr&gt;&quot;;
+            }
+            ?&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <!-- STEP 10 -->
+    <div id="step10" class="step-card">
+        <h2>Langkah 10: form_booking.php <span class="badge">form_booking.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start();
+include &#x27;koneksi.php&#x27;;
+
+if (!isset($_SESSION[&#x27;id&#x27;])) {
+    header(&quot;Location: login.php&quot;);
+    exit;
+}
+?&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;Booking Servis&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;stylee.css&quot;&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div class=&quot;nav&quot;&gt;
+        &lt;a href=&quot;dashboard.php&quot;&gt;Kembali ke Dashboard&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;h2&gt;Buat Antrean Baru&lt;/h2&gt;
+        &lt;form action=&quot;aksi.php?proses=tambah_booking&quot; method=&quot;POST&quot;&gt;
+
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Tanggal Rencana Servis&lt;/label&gt;
+                &lt;input type=&quot;date&quot; name=&quot;tanggal&quot; required&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Pilih Laptop&lt;/label&gt;
+                &lt;select name=&quot;id_laptop&quot; required&gt;
+                    &lt;option value=&quot;&quot;&gt;-- Pilih Laptop Anda --&lt;/option&gt;
+                    &lt;?php
+                    $uid = $_SESSION[&#x27;id&#x27;];
+                    $q_laptop = mysqli_query($koneksi, &quot;SELECT * FROM laptop WHERE id_pemilik=&#x27;$uid&#x27;&quot;);
+                    while ($row = mysqli_fetch_assoc($q_laptop)) {
+                        echo &quot;&lt;option value=&#x27;&quot; . $row[&#x27;id&#x27;] . &quot;&#x27;&gt;&quot; . $row[&#x27;nama_laptop&#x27;] . &quot;&lt;/option&gt;&quot;;
+                    }
+                    ?&gt;
+                &lt;/select&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Pilih Jenis Layanan&lt;/label&gt;
+                &lt;select name=&quot;id_servis&quot; required&gt;
+                    &lt;option value=&quot;&quot;&gt;-- Pilih Layanan --&lt;/option&gt;
+                    &lt;?php
+
+                    $q_servis = mysqli_query($koneksi, &quot;SELECT * FROM servis&quot;);
+                    while ($row = mysqli_fetch_assoc($q_servis)) {
+                        echo &quot;&lt;option value=&#x27;&quot; . $row[&#x27;id&#x27;] . &quot;&#x27;&gt;&quot; . $row[&#x27;nama_servis&#x27;] . &quot; (Rp &quot; . number_format($row[&#x27;harga_servis&#x27;], 0, &#x27;,&#x27;, &#x27;.&#x27;) . &quot;)&lt;/option&gt;&quot;;
+                    }
+                    ?&gt;
+                &lt;/select&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Keluhan (Opsional)&lt;/label&gt;
+                &lt;textarea name=&quot;keluhan&quot; placeholder=&quot;Ceritakan masalah laptopnya...&quot;&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+
+            &lt;button type=&quot;submit&quot; style=&quot;margin-top: 10px;&quot;&gt;Daftar Sekarang&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <!-- STEP 11 -->
+    <div id="step11" class="step-card">
+        <h2>Langkah 11: form_laptop.php <span class="badge">form_laptop.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start();
+include &#x27;koneksi.php&#x27;;
+
+if (!isset($_SESSION[&#x27;id&#x27;]) || $_SESSION[&#x27;role&#x27;] != &#x27;Pelanggan&#x27;) {
+    header(&quot;Location: dashboard.php&quot;);
+    exit;
+}
+
+$user_id = $_SESSION[&#x27;id&#x27;];
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;Data Laptop&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;stylee.css&quot;&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div class=&quot;nav&quot;&gt;
+        &lt;a href=&quot;dashboard.php&quot;&gt;Kembali ke Dashboard&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;h2&gt;Tambah Data Laptop&lt;/h2&gt;
+        &lt;form action=&quot;aksi.php?proses=tambah_laptop&quot; method=&quot;POST&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Nama/Merek Laptop&lt;/label&gt;
+                &lt;input type=&quot;text&quot; name=&quot;nama_laptop&quot; placeholder=&quot;Contoh: Asus ROG Strix / Lenovo ThinkPad&quot; required&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Jenis/Tipe Laptop&lt;/label&gt;
+                &lt;select name=&quot;jenis&quot; required&gt;
+                    &lt;option value=&quot;&quot;&gt;-- Pilih Jenis --&lt;/option&gt;
+                    &lt;option value=&quot;Gaming&quot;&gt;Gaming&lt;/option&gt;
+                    &lt;option value=&quot;Office&quot;&gt;Office/Kuliah&lt;/option&gt;
+                    &lt;option value=&quot;MacBook&quot;&gt;MacBook&lt;/option&gt;
+                    &lt;option value=&quot;Lainnya&quot;&gt;Lainnya&lt;/option&gt;
+                &lt;/select&gt;
+            &lt;/div&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn&quot;&gt;Simpan Laptop&lt;/button&gt;
+        &lt;/form&gt;
+
+        &lt;h2&gt;Daftar Laptop Saya&lt;/h2&gt;
+        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;th&gt;No&lt;/th&gt;
+                &lt;th&gt;Nama Laptop&lt;/th&gt;
+                &lt;th&gt;Jenis&lt;/th&gt;
+                &lt;th&gt;Aksi&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;?php
+            $no = 1;
+            $q = mysqli_query($koneksi, &quot;SELECT * FROM laptop WHERE id_pemilik = &#x27;$user_id&#x27;&quot;);
+            
+            if (mysqli_num_rows($q) &gt; 0) {
+                while ($l = mysqli_fetch_assoc($q)) {
+                    echo &quot;&lt;tr&gt;
+                            &lt;td&gt;&quot; . $no++ . &quot;&lt;/td&gt;
+                            &lt;td&gt;&quot; . htmlspecialchars($l[&#x27;nama_laptop&#x27;]) . &quot;&lt;/td&gt;
+                            &lt;td&gt;&quot; . htmlspecialchars($l[&#x27;jenis&#x27;]) . &quot;&lt;/td&gt;
+                            &lt;td&gt;
+                                &lt;a href=&#x27;aksi.php?proses=hapus_laptop&amp;id=&quot; . $l[&#x27;id&#x27;] . &quot;&#x27; class=&#x27;btn btn-danger&#x27; onclick=&#x27;return confirm(\&quot;Hapus laptop ini dari data Anda?\&quot;)&#x27;&gt;Hapus&lt;/a&gt;
+                            &lt;/td&gt;
+                          &lt;/tr&gt;&quot;;
+                }
+            } else {
+                echo &quot;&lt;tr&gt;&lt;td colspan=&#x27;4&#x27; style=&#x27;text-align:center;&#x27;&gt;Belum ada data laptop. Silakan tambahkan terlebih dahulu!&lt;/td&gt;&lt;/tr&gt;&quot;;
+            }
+            ?&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <!-- STEP 12 -->
+    <div id="step12" class="step-card">
+        <h2>Langkah 12: form_servis.php <span class="badge">form_servis.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start();
+include &#x27;koneksi.php&#x27;;
+
+if ($_SESSION[&#x27;role&#x27;] == &#x27;Pelanggan&#x27;) header(&quot;Location: dashboard.php&quot;);
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;Data servis&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;stylee.css&quot;&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div class=&quot;nav&quot;&gt;&lt;a href=&quot;dashboard.php&quot;&gt;Kembali Dashboard&lt;/a&gt;&lt;/div&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;h2&gt;Tambah jasa servis baru &lt;/h2&gt;
+        &lt;form action=&quot;aksi.php?proses=tambah_layanan&quot; method=&quot;POST&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Nama Jasa/Servis&lt;/label&gt;
+                &lt;input type=&quot;text&quot; name=&quot;nama_servis&quot; placeholder=&quot;Contoh: Ganti LCD&quot; required&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Biaya Jasa (Rp)&lt;/label&gt;
+                &lt;input type=&quot;number&quot; name=&quot;harga_servis&quot; placeholder=&quot;Contoh: 150000&quot; required&gt;
+            &lt;/div&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn&quot;&gt;Simpan Jasa&lt;/button&gt;
+        &lt;/form&gt;
+
+        &lt;h2&gt;Daftar Servis&lt;/h2&gt;
+        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Nama Servis&lt;/th&gt;
+                &lt;th&gt;Harga&lt;/th&gt;
+                &lt;th&gt;Aksi&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;?php
+            $q = mysqli_query($koneksi, &quot;SELECT * FROM servis&quot;);
+            while ($s = mysqli_fetch_assoc($q)) {
+                echo &quot;&lt;tr&gt;
+                        &lt;td&gt;&quot; . $s[&#x27;nama_servis&#x27;] . &quot;&lt;/td&gt;
+                        &lt;td&gt;Rp &quot; . number_format($s[&#x27;harga_servis&#x27;], 0, &#x27;,&#x27;, &#x27;.&#x27;) . &quot;&lt;/td&gt;
+                        &lt;td&gt;
+&lt;a href=&#x27;aksi.php?proses=hapus_servis&amp;id=&quot; . $s[&#x27;id&#x27;] . &quot;&#x27; class=&#x27;btn btn-danger&#x27; onclick=&#x27;return confirm(\&quot;Hapus Servis ini?\&quot;)&#x27;&gt;Hapus&lt;/a&gt;
+                        &lt;/td&gt;
+                      &lt;/tr&gt;&quot;;
+            }
+            ?&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <!-- STEP 13 -->
+    <div id="step13" class="step-card">
+        <h2>Langkah 13: form_sparepart.php <span class="badge">form_sparepart.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start();
+include &#x27;koneksi.php&#x27;;
+if ($_SESSION[&#x27;role&#x27;] == &#x27;Pelanggan&#x27;) header(&quot;Location: index.php&quot;);
+$role = $_SESSION[&#x27;role&#x27;];
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Man  age Sparepart&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;stylee.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;nav&quot;&gt;&lt;a href=&quot;dashboard.php&quot;&gt;Kembali Dashboard&lt;/a&gt;&lt;/div&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;?php if($role == &#x27;Admin&#x27;) { ?&gt;
+        &lt;h2&gt;Input Sparepart Baru&lt;/h2&gt;
+        &lt;form action=&quot;aksi.php?proses=tambah_sparepart&quot; method=&quot;POST&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;&lt;label&gt;SKU&lt;/label&gt;&lt;input type=&quot;text&quot; name=&quot;sku&quot; required&gt;&lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;&lt;label&gt;Nama Sparepart&lt;/label&gt;&lt;input type=&quot;text&quot; name=&quot;nama_sparepart&quot; required&gt;&lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;&lt;label&gt;Harga Beli (Modal)&lt;/label&gt;&lt;input type=&quot;number&quot; name=&quot;harga_beli&quot; required&gt;&lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;&lt;label&gt;Harga Jual&lt;/label&gt;&lt;input type=&quot;number&quot; name=&quot;harga_jual&quot; required&gt;&lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;&lt;label&gt;Jumlah&lt;/label&gt;&lt;input type=&quot;number&quot; name=&quot;jumlah&quot; required&gt;&lt;/div&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn&quot;&gt;Simpan&lt;/button&gt;
+        &lt;/form&gt;
+        &lt;?php } ?&gt;
+
+        &lt;h2&gt;Data Sparepart&lt;/h2&gt;
+        &lt;table border=&quot;1&quot; style=&quot;width:100%; border-collapse: collapse;&quot;&gt;
+            &lt;thead&gt;
+                &lt;tr style=&quot;background:#eee;&quot;&gt;
+                    &lt;th&gt;ID&lt;/th&gt;
+                    &lt;th&gt;SKU&lt;/th&gt;
+                    &lt;th&gt;Nama Sparepart&lt;/th&gt;
+                    &lt;?php if($role == &#x27;Admin&#x27;) { ?&gt;
+                    &lt;th&gt;Harga Beli&lt;/th&gt;
+                    &lt;th&gt;Harga Jual&lt;/th&gt;
+                    &lt;?php } ?&gt;
+                    &lt;th&gt;Jumlah&lt;/th&gt;
+                    &lt;?php if($role == &#x27;Admin&#x27;) { ?&gt;
+                    &lt;th&gt;Aksi&lt;/th&gt;
+                    &lt;?php } ?&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+            &lt;?php
+            $q = mysqli_query($koneksi, &quot;SELECT * FROM sparepart&quot;);
+            while ($s = mysqli_fetch_assoc($q)) {
+                echo &quot;&lt;tr&gt;
+                        &lt;td&gt;&quot; . $s[&#x27;id&#x27;] . &quot;&lt;/td&gt;
+                        &lt;td&gt;&quot; . $s[&#x27;sku&#x27;] . &quot;&lt;/td&gt;
+                        &lt;td&gt;&quot; . $s[&#x27;nama_sparepart&#x27;] . &quot;&lt;/td&gt;&quot;;
+                        
+                if($role == &#x27;Admin&#x27;) {
+                    echo &quot;&lt;td&gt;Rp &quot; . number_format($s[&#x27;harga_beli&#x27;], 0, &#x27;,&#x27;, &#x27;.&#x27;) . &quot;&lt;/td&gt;&quot;;
+                    echo &quot;&lt;td&gt;Rp &quot; . number_format($s[&#x27;harga_jual&#x27;], 0, &#x27;,&#x27;, &#x27;.&#x27;) . &quot;&lt;/td&gt;&quot;;
+                }
+                
+                echo &quot;&lt;td&gt;&quot; . $s[&#x27;jumlah&#x27;] . &quot;&lt;/td&gt;&quot;;
+                
+                if($role == &#x27;Admin&#x27;) {
+                    echo &quot;&lt;td&gt;
+                            &lt;a href=&#x27;edit_sparepart.php?id=&quot; . $s[&#x27;id&#x27;] . &quot;&#x27; class=&#x27;btn&#x27;&gt;Edit&lt;/a&gt;
+                            &lt;a href=&#x27;aksi.php?proses=hapus_sparepart&amp;id=&quot; . $s[&#x27;id&#x27;] . &quot;&#x27; class=&#x27;btn btn-danger&#x27; onclick=&#x27;return confirm(\&quot;Hapus sparepart ini?\&quot;)&#x27;&gt;Hapus&lt;/a&gt;
+                          &lt;/td&gt;&quot;;
+                }
+                echo &quot;&lt;/tr&gt;&quot;;
+            }
+            ?&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <!-- STEP 14 -->
+    <div id="step14" class="step-card">
+        <h2>Langkah 14: edit_sparepart.php <span class="badge">edit_sparepart.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start();
+include &#x27;koneksi.php&#x27;;
+if ($_SESSION[&#x27;role&#x27;] != &#x27;Admin&#x27;) header(&quot;Location: dashboard.php&quot;);
+
+$id = $_GET[&#x27;id&#x27;];
+$data = mysqli_query($koneksi, &quot;SELECT * FROM sparepart WHERE id=&#x27;$id&#x27;&quot;);
+$s = mysqli_fetch_assoc($data);
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Edit Sparepart&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;stylee.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;nav&quot;&gt;&lt;a href=&quot;form_sparepart.php&quot;&gt;Batal&lt;/a&gt;&lt;/div&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;h2&gt;Edit Data Sparepart&lt;/h2&gt;
+        &lt;form action=&quot;aksi.php?proses=edit_sparepart&quot; method=&quot;POST&quot;&gt;
+            &lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;&lt;?= $s[&#x27;id&#x27;] ?&gt;&quot;&gt;
+           
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;SKU&lt;/label&gt;
+                &lt;input type=&quot;text&quot; name=&quot;sku&quot; value=&quot;&lt;?= $s[&#x27;sku&#x27;] ?&gt;&quot; required&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Nama Sparepart&lt;/label&gt;
+                &lt;input type=&quot;text&quot; name=&quot;nama_sparepart&quot; value=&quot;&lt;?= $s[&#x27;nama_sparepart&#x27;] ?&gt;&quot; required&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Jumlah&lt;/label&gt;
+                &lt;input type=&quot;number&quot; name=&quot;jumlah&quot; value=&quot;&lt;?= $s[&#x27;jumlah&#x27;] ?&gt;&quot; required&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Harga Beli&lt;/label&gt;
+                &lt;input type=&quot;number&quot; name=&quot;harga_beli&quot; value=&quot;&lt;?= $s[&#x27;harga_beli&#x27;] ?&gt;&quot; required&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label&gt;Harga Jual&lt;/label&gt;
+                &lt;input type=&quot;number&quot; name=&quot;harga_jual&quot; value=&quot;&lt;?= $s[&#x27;harga_jual&#x27;] ?&gt;&quot; required&gt;
+            &lt;/div&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn&quot;&gt;Update Data&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <!-- STEP 15 -->
+    <div id="step15" class="step-card">
+        <h2>Langkah 15: nota_pembayaran.php <span class="badge">nota_pembayaran.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start();
+include &#x27;koneksi.php&#x27;;
+if(!isset($_SESSION[&#x27;id&#x27;])) header(&quot;Location: login.php&quot;);
+
+$id_booking = isset($_GET[&#x27;id_booking&#x27;]) ? $_GET[&#x27;id_booking&#x27;] : 0;
+
+$q_nota = mysqli_query($koneksi, &quot;SELECT n.*, b.tanggal as tgl_booking, l.nama_laptop, u.username, s.nama_servis, s.harga_servis 
+                                  FROM nota_pembayaran n 
+                                  JOIN booking b ON n.id_booking = b.id 
+                                  JOIN laptop l ON b.id_laptop = l.id 
+                                  JOIN users u ON l.id_pemilik = u.id 
+                                  JOIN servis s ON b.id_servis = s.id 
+                                  WHERE n.id_booking=&#x27;$id_booking&#x27;&quot;);
+
+if(mysqli_num_rows($q_nota) == 0) {
+    die(&quot;Nota belum diterbitkan atau booking tidak valid.&quot;);
+}
+
+$nota = mysqli_fetch_assoc($q_nota);
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Nota Pembayaran #&lt;?= $nota[&#x27;id&#x27;] ?&gt;&lt;/title&gt;
+    &lt;style&gt;
+        .kotak-nota {
+            border: 1px solid black;
+            width: 400px;
+            padding: 20px;
+            margin: 20px auto;
+            font-family: sans-serif;
+            font-size: 14px;
         }
-    </script>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;kotak-nota&quot;&gt;
+    &lt;h2&gt;Nota Pembayaran TechFix&lt;/h2&gt;
+    &lt;p&gt;
+        No. Nota: &lt;b&gt;#&lt;?= $nota[&#x27;id&#x27;] ?&gt;&lt;/b&gt;&lt;br&gt;
+        Tanggal : &lt;?= $nota[&#x27;tanggal_selesai&#x27;] ?&gt;&lt;br&gt;
+        Pelanggan: &lt;?= $nota[&#x27;username&#x27;] ?&gt;&lt;br&gt;
+        Laptop  : &lt;?= $nota[&#x27;nama_laptop&#x27;] ?&gt;
+    &lt;/p&gt;
+    &lt;hr&gt;
+    
+    &lt;table border=&quot;1&quot; style=&quot;width: 100%; border-collapse: collapse;&quot;&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Daftar Layanan &amp; Sparepart&lt;/th&gt;
+            &lt;th&gt;Subtotal&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;[JASA] &lt;?= $nota[&#x27;nama_servis&#x27;] ?&gt;&lt;/td&gt;
+            &lt;td&gt;Rp &lt;?= number_format($nota[&#x27;harga_servis&#x27;],0,&#x27;,&#x27;,&#x27;.&#x27;) ?&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;?php
+        $q_part = mysqli_query($koneksi, &quot;SELECT ds.*, sp.sku FROM detail_servis ds JOIN spareparts sp ON ds.id_sparepart = sp.id WHERE ds.id_booking=&#x27;$id_booking&#x27;&quot;);
+        while($part = mysqli_fetch_assoc($q_part)){
+            echo &quot;&lt;tr&gt;
+                    &lt;td&gt;[PART] &quot;.$part[&#x27;sku&#x27;].&quot; (&quot;.$part[&#x27;qty&#x27;].&quot;x)&lt;/td&gt;
+                    &lt;td&gt;Rp &quot;.number_format($part[&#x27;qty&#x27;] * $part[&#x27;harga_satuan&#x27;],0,&#x27;,&#x27;,&#x27;.&#x27;).&quot;&lt;/td&gt;
+                  &lt;/tr&gt;&quot;;
+        }
+        ?&gt;
+        &lt;tr&gt;
+            &lt;th&gt;TOTAL BAYAR&lt;/th&gt;
+            &lt;th&gt;Rp &lt;?= number_format($nota[&#x27;total_biaya&#x27;],0,&#x27;,&#x27;,&#x27;.&#x27;) ?&gt;&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+    
+    &lt;br&gt;
+    &lt;p&gt;
+        &lt;b&gt;INFORMASI GARANSI:&lt;/b&gt;&lt;br&gt;
+        - Garansi Servis (30 Hari): s/d &lt;b&gt;&lt;?= $nota[&#x27;garansi_servis_habis&#x27;] ?&gt;&lt;/b&gt;&lt;br&gt;
+        - Garansi Sparepart (1 Tahun): 
+        &lt;?php
+        if($nota[&#x27;garansi_sparepart_habis&#x27;] != &#x27;&#x27;) {
+            echo &quot;s/d &lt;b&gt;&quot;.$nota[&#x27;garansi_sparepart_habis&#x27;].&quot;&lt;/b&gt;&quot;;
+        } else {
+            echo &quot;&lt;i&gt;Tidak beli part&lt;/i&gt;&quot;;
+        }
+        ?&gt;
+    &lt;/p&gt;
+    
+    &lt;br&gt;
+    <button onclick="window.print()">Cetak Nota</button>
+</div>
+</body>
+</html>
+</code></pre>
+    </div>
+
+    <!-- STEP 16 -->
+    <div id="step16" class="step-card">
+        <h2>Langkah 16: laporan_keuangan.php <span class="badge">laporan_keuangan.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start();
+include &#x27;koneksi.php&#x27;;
+if($_SESSION[&#x27;role&#x27;] != &#x27;Admin&#x27;) header(&quot;Location: dashboard.php&quot;);
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Laporan Keuangan Laba Rugi&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;stylee.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;nav&quot;&gt;
+        &lt;a href=&quot;dashboard.php&quot;&gt;Kembali Dashboard&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;container&quot; style=&quot;max-width: 900px;&quot;&gt;
+        &lt;h1 style=&quot;text-align: center; color: #2c3e50; margin-bottom: 30px;&quot;&gt;Laporan Keuangan &amp; Laba Rugi&lt;/h1&gt;
+        
+        &lt;?php
+        $q_jasa = mysqli_fetch_assoc(mysqli_query($koneksi, &quot;SELECT SUM(s.harga_servis) as total_jasa FROM booking b JOIN servis s ON b.id_servis = s.id WHERE b.status=&#x27;Selesai&#x27;&quot;));
+        $tot_jasa = intval($q_jasa[&#x27;total_jasa&#x27;]);
+        
+        $q_part = mysqli_query($koneksi, &quot;SELECT ds.qty, ds.harga_satuan, sp.harga_beli FROM detail_servis ds JOIN booking b ON ds.id_booking = b.id JOIN sparepart sp ON ds.id_sparepart = sp.id WHERE b.status=&#x27;Selesai&#x27;&quot;);
+        
+        $tot_jual_part = 0;
+        $tot_modal_part = 0;
+        while($p = mysqli_fetch_assoc($q_part)) {
+            $tot_jual_part += ($p[&#x27;qty&#x27;] * $p[&#x27;harga_satuan&#x27;]);
+            $tot_modal_part += ($p[&#x27;qty&#x27;] * $p[&#x27;harga_beli&#x27;]);
+        }
+        
+        $laba = ($tot_jual_part + $tot_jasa) - $tot_modal_part;
+        ?&gt;
+
+        &lt;div style=&quot;display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;&quot;&gt;
+            &lt;div style=&quot;background: #e1f5fe; padding: 20px; border-radius: 8px; border-left: 5px solid #03a9f4;&quot;&gt;
+                &lt;p style=&quot;margin: 0; font-size: 14px; color: #555;&quot;&gt;Total Jasa Servis&lt;/p&gt;
+                &lt;h3 style=&quot;margin: 5px 0; color: #0288d1;&quot;&gt;Rp &lt;?= number_format($tot_jasa, 0, &#x27;,&#x27;, &#x27;.&#x27;) ?&gt;&lt;/h3&gt;
+            &lt;/div&gt;
+            &lt;div style=&quot;background: #e8f5e9; padding: 20px; border-radius: 8px; border-left: 5px solid #4caf50;&quot;&gt;
+                &lt;p style=&quot;margin: 0; font-size: 14px; color: #555;&quot;&gt;Penjualan Parts&lt;/p&gt;
+                &lt;h3 style=&quot;margin: 5px 0; color: #2e7d32;&quot;&gt;Rp &lt;?= number_format($tot_jual_part, 0, &#x27;,&#x27;, &#x27;.&#x27;) ?&gt;&lt;/h3&gt;
+            &lt;/div&gt;
+            &lt;div style=&quot;background: #fff3e0; padding: 20px; border-radius: 8px; border-left: 5px solid #ff9800;&quot;&gt;
+                &lt;p style=&quot;margin: 0; font-size: 14px; color: #555;&quot;&gt;Modal Terpakai&lt;/p&gt;
+                &lt;h3 style=&quot;margin: 5px 0; color: #e65100;&quot;&gt;Rp &lt;?= number_format($tot_modal_part, 0, &#x27;,&#x27;, &#x27;.&#x27;) ?&gt;&lt;/h3&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div style=&quot;background: #2c3e50; color: white; padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);&quot;&gt;
+            &lt;p style=&quot;margin: 0; font-size: 18px; opacity: 0.9;&quot;&gt;LABA BERSIH SAAT INI&lt;/p&gt;
+            &lt;h2 style=&quot;margin: 10px 0 0 0; font-size: 48px;&quot;&gt;Rp &lt;?= number_format($laba, 0, &#x27;,&#x27;, &#x27;.&#x27;) ?&gt;&lt;/h2&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+
+    <!-- STEP 17 -->
+    <div id="step17" class="step-card">
+        <h2>Langkah 17: aksi.php <span class="badge">aksi.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start();
+include &#x27;koneksi.php&#x27;;
+$proses = isset($_GET[&#x27;proses&#x27;]) ? $_GET[&#x27;proses&#x27;] : &#x27;&#x27;;
+
+if ($proses == &#x27;register&#x27;) {
+    $username = $_POST[&#x27;username&#x27;]; $password = $_POST[&#x27;password&#x27;];
+    mysqli_query($koneksi, &quot;INSERT INTO users (username, password, role) VALUES (&#x27;$username&#x27;, &#x27;$password&#x27;, &#x27;Pelanggan&#x27;)&quot;);
+    header(&quot;Location: login.php?msg=register_sukses&quot;);
+} elseif ($proses == &#x27;tambah_laptop&#x27;) {
+    mysqli_query($koneksi, &quot;INSERT INTO laptop (nama_laptop, jenis, id_pemilik) VALUES (&#x27;$_POST[nama_laptop]&#x27;, &#x27;$_POST[jenis]&#x27;, &#x27;$_SESSION[id]&#x27;)&quot;);
+    header(&quot;Location: form_laptop.php&quot;);
+} elseif ($proses == &#x27;edit_laptop&#x27;) {
+    mysqli_query($koneksi, &quot;UPDATE laptop SET nama_laptop=&#x27;$_POST[nama_laptop]&#x27;, jenis=&#x27;$_POST[jenis]&#x27; WHERE id=&#x27;$_POST[id]&#x27; AND id_pemilik=&#x27;$_SESSION[id]&#x27;&quot;);
+    header(&quot;Location: form_laptop.php&quot;);
+} elseif ($proses == &#x27;hapus_laptop&#x27;) {
+    mysqli_query($koneksi, &quot;DELETE FROM laptop WHERE id=&#x27;$_GET[id]&#x27;&quot;);
+    header(&quot;Location: form_laptop.php&quot;);
+} elseif ($proses == &#x27;tambah_layanan&#x27;) {
+    mysqli_query($koneksi, &quot;INSERT INTO servis (nama_servis, harga_servis) VALUES (&#x27;$_POST[nama_servis]&#x27;, &#x27;$_POST[harga_servis]&#x27;)&quot;);
+    header(&quot;Location: form_servis.php&quot;);
+} elseif ($proses == &#x27;edit_layanan&#x27;) {
+    mysqli_query($koneksi, &quot;UPDATE servis SET nama_servis=&#x27;$_POST[nama_servis]&#x27;, harga_servis=&#x27;$_POST[harga_servis]&#x27; WHERE id=&#x27;$_POST[id]&#x27;&quot;);
+    header(&quot;Location: form_servis.php&quot;);
+} elseif ($proses == &#x27;update_status&#x27;) {
+    $id = $_POST[&#x27;id_booking&#x27;]; $st = $_POST[&#x27;status&#x27;];
+    mysqli_query($koneksi, &quot;UPDATE booking SET status=&#x27;$st&#x27; WHERE id=&#x27;$id&#x27;&quot;);
+    if($st == &#x27;Selesai&#x27;) {
+        $q_jasa = mysqli_fetch_assoc(mysqli_query($koneksi, &quot;SELECT s.harga_servis FROM booking b JOIN servis s ON b.id_servis = s.id WHERE b.id=&#x27;$id&#x27;&quot;));
+        $q_p = mysqli_fetch_assoc(mysqli_query($koneksi, &quot;SELECT SUM(qty*harga_satuan) as tp FROM detail_servis WHERE id_booking=&#x27;$id&#x27;&quot;));
+        $total = $q_jasa[&#x27;harga_servis&#x27;] + $q_p[&#x27;tp&#x27;];
+        $tgl_s = date(&#x27;Y-m-d&#x27;); $g_s = date(&#x27;Y-m-d&#x27;, strtotime(&#x27;+30 days&#x27;));
+        mysqli_query($koneksi, &quot;INSERT INTO nota_pembayaran (id_booking, total_biaya, tanggal_selesai, garansi_servis_habis) VALUES (&#x27;$id&#x27;, &#x27;$total&#x27;, &#x27;$tgl_s&#x27;, &#x27;$g_s&#x27;)&quot;);
+    }
+    header(&quot;Location: dashboard.php&quot;);
+} elseif ($proses == &#x27;tambah_sparepart_ke_servis&#x27;) {
+    $id_b = $_POST[&#x27;id_booking&#x27;]; $id_s = $_POST[&#x27;id_sparepart&#x27;]; $qty = $_POST[&#x27;qty&#x27;];
+    $stok = mysqli_fetch_assoc(mysqli_query($koneksi, &quot;SELECT jumlah, harga_jual FROM sparepart WHERE id=&#x27;$id_s&#x27;&quot;));
+    if($stok[&#x27;jumlah&#x27;] &gt;= $qty) {
+        $h = $stok[&#x27;harga_jual&#x27;];
+        mysqli_query($koneksi, &quot;UPDATE sparepart SET jumlah = jumlah - $qty WHERE id=&#x27;$id_s&#x27;&quot;);
+        mysqli_query($koneksi, &quot;INSERT INTO detail_servis (id_booking, id_sparepart, qty, harga_satuan) VALUES (&#x27;$id_b&#x27;, &#x27;$id_s&#x27;, &#x27;$qty&#x27;, &#x27;$h&#x27;)&quot;);
+    }
+    header(&quot;Location: dashboard.php&quot;);
+}
+?&gt;</code></pre>
+    </div>
+
+    <!-- STEP 18 -->
+    <div id="step18" class="step-card">
+        <h2>Langkah 18: edit_laptop.php <span class="badge">edit_laptop.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start(); include &#x27;koneksi.php&#x27;;
+$id = $_GET[&#x27;id&#x27;]; $u_id = $_SESSION[&#x27;id&#x27;];
+$data = mysqli_fetch_assoc(mysqli_query($koneksi, &quot;SELECT * FROM laptop WHERE id = &#x27;$id&#x27; AND id_pemilik = &#x27;$u_id&#x27;&quot;));
+?&gt;
+&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;Edit Laptop&lt;/title&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;stylee.css&quot;&gt;&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;h2&gt;Edit Laptop&lt;/h2&gt;
+        &lt;form action=&quot;aksi.php?proses=edit_laptop&quot; method=&quot;POST&quot;&gt;
+            &lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;&lt;?= $data[&#x27;id&#x27;] ?&gt;&quot;&gt;
+            &lt;input type=&quot;text&quot; name=&quot;nama_laptop&quot; value=&quot;&lt;?= $data[&#x27;nama_laptop&#x27;] ?&gt;&quot; required&gt;
+            &lt;select name=&quot;jenis&quot;&gt;
+                &lt;option value=&quot;Gaming&quot; &lt;?= $data[&#x27;jenis&#x27;]==&#x27;Gaming&#x27;?&#x27;selected&#x27;:&#x27;&#x27; ?&gt;&gt;Gaming&lt;/option&gt;
+                &lt;option value=&quot;Office&quot; &lt;?= $data[&#x27;jenis&#x27;]==&#x27;Office&#x27;?&#x27;selected&#x27;:&#x27;&#x27; ?&gt;&gt;Office&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn&quot;&gt;Update&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/body&gt;&lt;/html&gt;</code></pre>
+    </div>
+
+    <!-- STEP 19 -->
+    <div id="step19" class="step-card">
+        <h2>Langkah 19: edit_servis.php <span class="badge">edit_servis.php</span></h2>
+        <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code class="language-php">&lt;?php
+session_start(); include &#x27;koneksi.php&#x27;;
+$id = $_GET[&#x27;id&#x27;];
+$data = mysqli_fetch_assoc(mysqli_query($koneksi, &quot;SELECT * FROM servis WHERE id = &#x27;$id&#x27;&quot;));
+?&gt;
+&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;Edit Servis&lt;/title&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;stylee.css&quot;&gt;&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;h2&gt;Edit Servis&lt;/h2&gt;
+        &lt;form action=&quot;aksi.php?proses=edit_layanan&quot; method=&quot;POST&quot;&gt;
+            &lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;&lt;?= $data[&#x27;id&#x27;] ?&gt;&quot;&gt;
+            &lt;input type=&quot;text&quot; name=&quot;nama_servis&quot; value=&quot;&lt;?= $data[&#x27;nama_servis&#x27;] ?&gt;&quot; required&gt;
+            &lt;input type=&quot;number&quot; name=&quot;harga_servis&quot; value=&quot;&lt;?= $data[&#x27;harga_servis&#x27;] ?&gt;&quot; required&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn&quot;&gt;Update&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/body&gt;&lt;/html&gt;</code></pre>
+    </div>
+
+</div>
+<script>
+    function copyCode(btn) {
+        const pre = btn.parentElement;
+        const code = pre.querySelector('code').innerText;
+        const temp = document.createElement('textarea');
+        temp.value = code;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        btn.innerText = "Copied!";
+        btn.style.background = "#10b981";
+        setTimeout(() => {
+            btn.innerText = "Copy";
+            btn.style.background = "rgba(255,255,255,0.1)";
+        }, 2000);
+    }
+</script>
 </body>
 </html>
