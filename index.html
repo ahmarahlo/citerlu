@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buku Saku UKK 2026 - TechFix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --bg-body: #0f172a;
+            --bg-sidebar: #1e293b;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --badge-bg: #3b82f620;
+            --badge-text: #60a5fa;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            line-height: 1.6;
+        }
+
+        /* Sidebar Nav */
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            padding: 24px 0;
+            box-sizing: border-box;
+        }
+
+        .sidebar h3 {
+            padding: 0 24px;
+            margin-top: 0;
+            font-size: 1.1rem;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li a {
+            display: block;
+            padding: 10px 24px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar li a:hover {
+            background-color: #33415550;
+            color: var(--text-main);
+            border-left-color: var(--primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 40px;
+            width: calc(100% - 280px);
+            box-sizing: border-box;
+            max-width: 1000px;
+        }
+
+        .header {
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin: 0 0 10px 0;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-card h2 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-family: monospace;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+        }
+
+        /* Code Block Styling */
+        .code-wrapper {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        pre {
+            margin: 0;
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.5;
+            font-family: 'JetBrains Mono', Consolas, monospace;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #334155;
+            color: var(--text-main);
+            border: 1px solid #475569;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+
+        .copy-btn:hover {
+            background: #475569;
+            transform: translateY(-1px);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding: 15px;
+            }
+            .sidebar ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+            .sidebar li a {
+                padding: 5px 10px;
+                border-left: none;
+                border-radius: 4px;
+                background: #33415550;
+            }
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+            .header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <h3>Navigasi File</h3>
+        <ul>
+            <li><a href="#step1">1. reset_dummy.sql</a></li>
+            <li><a href="#step2">2. koneksi.php</a></li>
+            <li><a href="#step3">3. stylee.css</a></li>
+            <li><a href="#step4">4. index.php</a></li>
+            <li><a href="#step5">5. login.php</a></li>
+            <li><a href="#step6">6. register.php</a></li>
+            <li><a href="#step7">7. cek_login.php</a></li>
+            <li><a href="#step8">8. logout.php</a></li>
+            <li><a href="#step9">9. dashboard.php</a></li>
+            <li><a href="#step10">10. form_booking.php</a></li>
+            <li><a href="#step11">11. form_laptop.php</a></li>
+            <li><a href="#step12">12. form_servis.php</a></li>
+            <li><a href="#step13">13. form_sparepart.php</a></li>
+            <li><a href="#step14">14. edit_sparepart.php</a></li>
+            <li><a href="#step15">15. nota_pembayaran.php</a></li>
+            <li><a href="#step16">16. laporan_keuangan.php</a></li>
+            <li><a href="#step17">17. aksi.php</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <div class="header">
+            <h1>🚀 Buku Saku UKK 2026: TechFix & Parts</h1>
+            <p>Panduan Ujian Praktik Database, Relasi Baru (Detail Servis & Nota), dan Logika Laba Tersimpan</p>
+        </div>
+
+        <section id="step1" class="step-card">
+            <h2>Langkah 1 <span class="badge">reset_dummy.sql</span></h2>
+            <div class="code-wrapper">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code class="language-sql">DROP DATABASE IF EXISTS db_techfix;
+CREATE DATABASE db_techfix;
+USE db_techfix;
+SOURCE db_techfix.sql;
+
+-- Insert Users
+INSERT INTO users (username, password, role) VALUES 
+('budi', 'budi', 'Pelanggan'),
+('siti', 'siti', 'Pelanggan'),
+('andi', 'andi', 'Pelanggan');
+
+-- Insert Laptop (Assuming User IDs are 3, 4, 5 since 1 and 2 are Admin, Teknisi)
+INSERT INTO laptop (nama_laptop, jenis, id_pemilik) VALUES 
+('Asus ROG Strix', 'Gaming', 3),
+('Lenovo ThinkPad X1', 'Ultrabook', 4),
+('MacBook Pro M2', 'Laptop', 5),
+('Acer Nitro 5', 'Gaming', 3);
+
+-- Insert Servis
+INSERT INTO servis (nama_servis, harga_servis) VALUES 
+('Instal Ulang Windows', 150000),
+('Pembersihan Kipas & Pasta', 250000),
+('Ganti Keyboard', 100000),
+('Ganti LCD Screen', 200000),
+('Cek Mati Total', 50000);
+
+-- Insert Sparepart
+INSERT INTO sparepart (sku, nama_sparepart, jumlah, harga_beli, harga_jual) VALUES 
+('RAM8GB', 'RAM Corsair 8GB DDR4', 15, 300000, 450000),
+('SSD512', 'SSD Samsung 512GB', 10, 500000, 750000),
+('KB-ASUS', 'Keyboard Asus ROG', 5, 200000, 350000),
+('BATT-LEN', 'Baterai Lenovo X1', 3, 600000, 850000),
+('PSTA', 'Thermal Paste Grizzly', 20, 100000, 150000);
+
+-- Insert Booking
+INSERT INTO booking (tanggal, id_laptop, id_servis, status) VALUES 
+('2024-05-01', 1, 2, 'Selesai'),
+('2024-05-02', 2, 4, 'Selesai'),
+('2024-05-05', 3, 1, 'Menunggu Antrean'),
+('2024-05-06', 4, 3, 'Menunggu Sparepart');
+
+-- Insert Detail Servis for booking 1, 2, 4
+INSERT INTO detail_servis (id_booking, id_sparepart, qty, harga_satuan) VALUES 
+(1, 5, 1, 150000),
+(2, 2, 1, 750000),
+(4, 3, 1, 350000);
+
+-- Insert Nota Pembayaran for 1 and 2
+INSERT INTO nota_pembayaran (id_booking, total_biaya, tanggal_selesai, garansi_servis_habis, garansi_sparepart_habis) VALUES 
+(1, 400000, '2024-05-03', '2024-06-02', '2025-05-03'),
+(2, 950000, '2024-05-04', '2024-06-03', '2025-05-04');</code></pre>
+            </div>
+        </section>
+
+        <section id="step2" class="step-card">
+            <h2>Langkah 2 <span class="badge">koneksi.php</span></h2>
+            <div class="code-wrapper">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code class="language-php">&lt;?php
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db   = "db_techfix";
+
+$koneksi = mysqli_connect($host, $user, $pass, $db);
+
+if (!$koneksi) {
+    die("Koneksi gagal: " . mysqli_connect_error());
+}
+?&gt;</code></pre>
+            </div>
+        </section>
+
+        <section id="step3" class="step-card">
+            <h2>Langkah 3 <span class="badge">stylee.css</span></h2>
+            <div class="code-wrapper">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code class="language-css">body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f6f9;
+  color: #333;
+}
+.container {
+  width: 85%;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+table, th, td { border: 1px solid #ddd; }
+th, td { padding: 10px; text-align: left; }
+th { background-color: #34495e; color: #fff; }
+.btn {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #3498db;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+.btn-danger { background-color: #e74c3c; }
+.btn-success { background-color: #2ecc71; }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.nav { background: #2c3e50; padding: 15px; overflow: hidden; }
+.nav a { color: #fff; text-decoration: none; margin-right: 15px; font-weight: bold; }
+.navigation { display: flex; justify-content: space-between; align-items: center; background-color: #2c3e50; padding: 10px 20px; }
+.navleft p { color: #ffffff; font-size: 24px; font-weight: bold; margin: 0; }
+.navright a { color: #ffffff; text-decoration: none; margin-left: 15px; font-size: 14px; }
+.navright a:hover { text-decoration: underline; }
+.navright a[href="logout.php"] { color: #ff6666; }</code></pre>
+            </div>
+        </section>
+
+        <section id="step4" class="step-card">
+            <h2>Langkah 4 <span class="badge">index.php</span></h2>
+            <div class="code-wrapper">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code class="language-php">&lt;?php
+session_start();
+include 'koneksi.php';
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;TechFix &amp; Parts&lt;/title&gt;
+    &lt;link rel="stylesheet" href="stylee.css"&gt;
+    &lt;style&gt;
+        .hero { background-color: #2c3e50; color: white; padding: 40px 20px; text-align: center; border-radius: 8px; margin-bottom: 20px; }
+        .hero h1 { color: white; margin-top: 0; font-size: 28px; }
+        .hero p { font-size: 18px; color: #ecf0f1; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="navigation"&gt;
+        &lt;div class="navleft"&gt;&lt;p&gt;TechFix&lt;/p&gt;&lt;/div&gt;
+        &lt;div class="navright"&gt;
+            &lt;a href="index.php"&gt;Home&lt;/a&gt;
+            &lt;?php if(isset($_SESSION['id'])) { 
+                if($_SESSION['role'] == 'Pelanggan') { ?&gt;
+                    &lt;a href="form_laptop.php"&gt;Data Laptop&lt;/a&gt;
+                    &lt;a href="form_booking.php"&gt;Booking Servis&lt;/a&gt;
+                &lt;?php } else { ?&gt;
+                    &lt;a href="dashboard.php"&gt;Dashboard&lt;/a&gt;
+                &lt;?php } ?&gt;
+                &lt;a href="logout.php"&gt;Logout&lt;/a&gt;
+            &lt;?php } else { ?&gt;
+                &lt;a href="login.php"&gt;Login / Masuk&lt;/a&gt;
+                &lt;a href="register.php"&gt;Register&lt;/a&gt;
+            &lt;?php } ?&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="container"&gt;
+        &lt;div class="hero"&gt;
+            &lt;h1&gt;Selamat Datang di TechFix &amp; Parts&lt;/h1&gt;
+            &lt;p&gt;Solusi Terbaik, Cepat, dan Terpercaya untuk Perawatan &amp; Perbaikan Laptop Anda.&lt;/p&gt;
+        &lt;/div&gt;
+        
+        &lt;?php if(isset($_SESSION['id']) && $_SESSION['role'] == 'Pelanggan') { ?&gt;
+        &lt;h2 style="margin-top:20px;"&gt;Lacak Servis Anda&lt;/h2&gt;
+        &lt;table border="1" cellpadding="10" style="width:100%; border-collapse: collapse; margin-bottom: 40px;"&gt;
+            &lt;tr style="background-color: #f2f2f2;"&gt;
+                &lt;th&gt;Tgl&lt;/th&gt;&lt;th&gt;Laptop&lt;/th&gt;&lt;th&gt;Servis &amp; Part&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;th&gt;Total Tagihan&lt;/th&gt;&lt;th&gt;Nota&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;?php
+            $user_id = $_SESSION['id'];
+            $sql = "SELECT b.*, l.nama_laptop, s.nama_servis, s.harga_servis FROM booking b JOIN laptop l ON b.id_laptop = l.id JOIN servis s ON b.id_servis = s.id WHERE l.id_pemilik = '$user_id' ORDER BY b.tanggal DESC, b.id ASC";
+            $query = mysqli_query($koneksi, $sql);
+            if(mysqli_num_rows($query) &gt; 0) {
+                while($row = mysqli_fetch_assoc($query)){
+                    $id_booking = $row['id'];
+                    $jasa = (int)$row['harga_servis'];
+                    $q_detail = mysqli_query($koneksi, "SELECT ds.*, sp.sku FROM detail_servis ds JOIN spareparts sp ON ds.id_sparepart = sp.id WHERE ds.id_booking = '$id_booking'");
+                    $sparepart_list = []; $total_part = 0;
+                    while($ds = mysqli_fetch_assoc($q_detail)) {
+                        $sparepart_list[] = $ds['qty'] . "x " . $ds['sku'];
+                        $total_part += ($ds['qty'] * $ds['harga_satuan']);
+                    }
+                    $str_sparepart = (count($sparepart_list) &gt; 0) ? implode("&lt;br&gt;", $sparepart_list) : "&lt;i&gt;(Tanpa Sparepart)&lt;/i&gt;";
+                    $total_tagihan = $jasa + $total_part;
+
+                    echo "&lt;tr&gt;
+                            &lt;td&gt;".$row['tanggal']."&lt;/td&gt;&lt;td&gt;".$row['nama_laptop']."&lt;/td&gt;
+                            &lt;td&gt;".$row['nama_servis']."&lt;br&gt;&lt;small&gt;".$str_sparepart."&lt;/small&gt;&lt;/td&gt;
+                            &lt;td&gt;&lt;b&gt;".$row['status']."&lt;/b&gt;&lt;/td&gt;
+                            &lt;td&gt;&lt;b&gt;Rp ".number_format($total_tagihan, 0, ',', '.')."&lt;/b&gt;&lt;/td&gt;&lt;td&gt;";
+                    if ($row['status'] == 'Selesai') {
+                        echo "&lt;a href='nota_pembayaran.php?id_booking=".$row['id']."' target='_blank' class='btn btn-success' style='font-size:12px; padding: 4px 8px;'&gt;Cetak&lt;/a&gt;";
+                    } else { echo "-"; }
+                    echo "&lt;/td&gt;&lt;/tr&gt;";
+                }
+            } else { echo "&lt;tr&gt;&lt;td colspan='6' style='text-align:center;'&gt;Belum ada riwayat servis.&lt;/td&gt;&lt;/tr&gt;"; }
+            ?&gt;
+        &lt;/table&gt;
+        &lt;?php } ?&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </section>
+
+        <section id="step5" class="step-card">
+            <h2>Langkah 5 <span class="badge">login.php</span></h2>
+            <div class="code-wrapper">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code class="language-php">&lt;?php session_start(); if(isset($_SESSION['id'])) header("Location: dashboard.php"); ?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Login&lt;/title&gt;
+    &lt;link rel="stylesheet" href="stylee.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container" style="max-width: 400px; margin-top: 50px;"&gt;
+        &lt;h2&gt;Login Sistem&lt;/h2&gt;
+        &lt;?php if(isset($_GET['msg'])) {
+            if($_GET['msg'] == 'register_sukses') echo "&lt;p style='color:green;'&gt;Register berhasil! Silakan login.&lt;/p&gt;";
+            else echo "&lt;p style='color:red;'&gt;Username atau Password salah!&lt;/p&gt;";
+        } ?&gt;
+        
+        &lt;form action="cek_login.php" method="POST"&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label&gt;Username&lt;/label&gt;
+                &lt;input type="text" name="username" required&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label&gt;Password&lt;/label&gt;
+                &lt;input type="password" name="password" required&gt;
+            &lt;/div&gt;
+            &lt;button type="submit" class="btn"&gt;Login&lt;/button&gt;
+        &lt;/form&gt;
+        &lt;p style="margin-top: 15px;"&gt;&lt;a href="index.php"&gt;Kembali ke Halaman Utama&lt;/a&gt; | &lt;a href="register.php"&gt;Belum punya akun? Register&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </section>
+
+        <section id="step6" class="step-card">
+            <h2>Langkah 6 <span class="badge">register.php</span></h2>
+            <div class="code-wrapper">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code class="language-php">&lt;?php session_start(); if(isset($_SESSION['id'])) header("Location: dashboard.php"); ?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Register&lt;/title&gt;
+    &lt;link rel="stylesheet" href="stylee.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container" style="max-width: 400px; margin-top: 50px;"&gt;
+        &lt;h2&gt;Register Akun Baru&lt;/h2&gt;
+        &lt;?php if(isset($_GET['msg'])) echo "&lt;p style='color:red;'&gt;Username sudah ada atau password tidak cocok!&lt;/p&gt;"; ?&gt;
+        
+        &lt;form action="aksi.php?proses=register" method="POST"&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label&gt;Username&lt;/label&gt;
+                &lt;input type="text" name="username" required&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label&gt;Password&lt;/label&gt;
+                &lt;input type="password" name="password" required&gt;
+            &lt;/div&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label&gt;Konfirmasi Password&lt;/label&gt;
+                &lt;input type="password" name="confirm_password" required&gt;
+            &lt;/div&gt;
+            &lt;button type="submit" class="btn"&gt;Register&lt;/button&gt;
+        &lt;/form&gt;
+        &lt;p style="margin-top: 15px;"&gt;&lt;a href="login.php"&gt;Sudah punya akun? Login&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+        </section>
+
+        <section id="step7" class="step-card">
+            <h2>Langkah 7 <span class="badge">cek_login.php</span></h2>
+            <div class="code-wrapper">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code class="language-php">&lt;?php
+session_start();
+include 'koneksi.php';
+
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+$query = mysqli_query($koneksi, "SELECT * FROM users WHERE username='$username' AND password='$password'");
+$cek = mysqli_num_rows($query);
+
+if($cek &gt; 0){
+    $data = mysqli_fetch_assoc($query);
+    $_SESSION['id'] = $data['id'];
+    $_SESSION['role'] = $data['role'];
+    
+    if($data['role'] == 'Pelanggan') {
+        header("Location: index.php");
+    } else {
+        header("Location: dashboard.php");
+    }
+} else {
+    header("Location: login.php?msg=gagal");
+}
+?&gt;</code></pre>
+            </div>
+        </section>
+
+        <section id="step8" class="step-card">
+            <h2>Langkah 8 <span class="badge">logout.php</span></h2>
+            <div class="code-wrapper">
+                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                <pre><code class="language-php">&lt;?php
+session_start();
+session_destroy();
+header("Location:index.php");
+?&gt;</code></pre>
+            </div>
+        </section>
+
+        </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        // Init Syntax Highlighter
+        hljs.highlightAll();
+
+        // Copy Code Functionality
+        function copyCode(btn) {
+            const pre = btn.parentElement;
+            const codeBlock = pre.querySelector('code');
+            
+            // Gunakan textContent supaya HTML tag dari highlight.js tidak ikut ter-copy
+            const textToCopy = codeBlock.textContent;
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = "Copied!";
+                btn.style.background = "#10b981";
+                btn.style.color = "white";
+                btn.style.borderColor = "#10b981";
+                
+                setTimeout(() => {
+                    btn.innerText = "Copy";
+                    btn.style.background = "#334155";
+                    btn.style.borderColor = "#475569";
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
